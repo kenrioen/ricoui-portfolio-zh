@@ -1,7 +1,7 @@
 ---
 import Logo from "@/components/ui/Logo.astro";
 import ToTop from "@/components/widgets/ToTop.astro";
-import { siteConfig, socialLinks } from "@/config/site.js";
+import { siteConfig } from "@/config/site.js";
 ---
 
 <section
@@ -14,27 +14,9 @@ import { siteConfig, socialLinks } from "@/config/site.js";
     <p
       class="mt-4 text-sm text-neutral-700 dark:text-neutral-100 sm:ml-4 sm:pl-4 sm:border-l sm:border-neutral-300 dark:sm:border-neutral-700 sm:mt-0"
     >
-      © {new Date().getFullYear()}
-
-       <a href={siteConfig.url || " "} target="_blank">{siteConfig.author || " "}</a>
+      © {new Date().getFullYear()} My Portfolio
     </p>
-    <span
-      class="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start overflow-hidden"
-    >
-      {socialLinks.map((social) => (
-        <a
-          href={social.url}
-          target="_blank"
-          class="footer-social-icon-link text-neutral-500 dark:text-neutral-300 "
-          title={social.name}
-        >
-          <span class="sr-only">{social.name}</span>
-          <div class="footer-social-icon text-neutral-500" >
-            <Fragment set:html={social.icon} />
-          </div>
-        </a>
-      ))}
-    </span>
+
   </div>
 </section>
 

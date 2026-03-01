@@ -1,11 +1,9 @@
 ---
-import Button from "../components/ui/Button.astro";
 import { siteConfig } from "@/config/site";
 import HeroCard from "@/components/home/HeroCard.astro";
 import Layout from "@/layouts/Layout.astro";
 import FeaturedWork from "../components/sections/FeaturedWork.astro";
 import BlogSection from "@/components/sections/BlogSection.astro";
-import SocialCard from "@/components/cards/SocialCard.astro";
 import AnimatedText from "@/components/ui/AnimatedText.astro";
 import Explore from "@/components/sections/Explore.astro";
 ---
@@ -53,29 +51,7 @@ keywords="黄仕倩, 作品集, 网页设计, UI 设计, 前端开发, 创意设
           />
         </div>
 
-        <!-- Button - AOS animation -->
-        <div
-          class=""
-          data-aos="fade-up-sm"
-          data-aos-delay="900"
-          data-aos-duration="500"
-          data-aos-once="true"
-        >
-          <Button url="https://ricoui.com/" type="fill" className="m-auto mt-4 text-center sm:text-left sm:m-0 sm:mt-6 max-w-[200px]">
-             关注我的博客
-          </Button>
-        </div>
 
-        <!-- Social Cards - AOS animation -->
-        <div
-          class="social mt-8 mb-8"
-          data-aos="fade-up-sm"
-          data-aos-delay="1000"
-          data-aos-duration="600"
-          data-aos-once="true"
-        >
-          <SocialCard displaySocialIds={[1, 2, 3,4]}/>
-        </div>
       </div>
 
       <!-- HeroCard - AOS animation -->
