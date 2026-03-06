@@ -2,20 +2,22 @@
 interface Props {
   name: string;          // Required
   image: string;         // Required
-  url: string;          // Required
+  url?: string;          // Optional (external link)
+  slug?: string;         // Optional (internal route)
   description?: string;  // Optional
   tags?: string[];      // Optional
   video?: string;       // Optional
   isShow?: boolean;     // Optional, default true
   layout?: 'featured' | 'grid'; // featured is full width, grid is two columns
   index?: number;
-  target?: string;      // Optional, default "_blank"
+  target?: string;      // Optional, default "_blank" (for external links)
 }
 
 const {
   name,
   description = '',
   url,
+  slug,
   image,
   tags = [],
   video,
@@ -24,6 +26,9 @@ const {
   index = 0,
   target = "_blank"
 } = Astro.props;
+
+const href = slug ? `/projects/${slug}` : url || '#';
+const isExternal = !slug && url && (url.startsWith('http://') || url.startsWith('https://'));
 
 // Generate stable id for each video for precise playback control
 const videoId = `workcard-video-${index}-${name.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}`;
@@ -155,9 +160,9 @@ const videoId = `workcard-video-${index}-${name.replace(/[^a-z0-9]+/gi, '-').toL
 
   <!-- Link overlay for entire card -->
   <a
-    href={url}
-    target={target}
-    rel={target === "_blank" ? "noopener noreferrer" : undefined}
+    href={href}
+    target={isExternal ? target : undefined}
+    rel={isExternal ? "noopener noreferrer" : undefined}
     class="absolute inset-0 z-10"
   >
     <span class="sr-only">View {name}</span>

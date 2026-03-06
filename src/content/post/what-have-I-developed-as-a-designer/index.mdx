@@ -1,195 +1,130 @@
 ---
-title: 作为设计师的我都开发了些什么
-publishDate: 2025-08-12
+title: 《Signalis》：梦是现实的延续
+description: 从精神分析与叙事学视角探讨独立生存恐怖游戏《Signalis》的叙事结构、梦境隐喻与重复的艺术表达。
+publishDate: 2026-03-02
 read: 12
-description: What have I developed as a designer?
 tags:
-  - Front End
-  - Develop
-  - Vibe Coding
+  - Game Analysis
+  - Psychology
+  - Narrative Design
 
 img: "/assets/blog/cover-portfolio-site.jpg"
-img_alt: "作为设计师的我都开发了些什么"
+img_alt: "《Signalis》：梦是现实的延续"
 ---
 
-我是Rico，之前在多个平台上发过关于设计师学习前端等文章，但是不少人其实有些不太理解或者说疑惑，或者有故意制造焦虑的嫌疑。但我始终觉得，职业选择本就该因人而异，有人深耕设计纯粹性，有人喜欢跨界探索可能性，没有绝对的对错。而当下的行业趋势，也确实在从 “严格分工” 走向 “协同融合”，设计的边界正在变得更灵活、更多元。
+import fig1 from './signalis-fig1.jpg';
+import fig2 from './signalis-fig2.jpg';
+import fig3 from './signalis-fig3.jpg';
+import fig4 from './signalis-fig4.jpg';
+import fig5 from './signalis-fig5.jpg';
+import fig6 from './signalis-fig6.jpg';
+import fig7 from './signalis-fig7.jpg';
+import fig8 from './signalis-fig8.jpg';
 
-作为设计师里偏小众的 “跨界探索者”，探索开发到现在也不短时间了，刚好做个阶段性的总结，分享和盘点一下我自己开发过的一些非商业、非合作的个人项目，可以作为参考，这些基本是围绕着自己平时的设计需求以及想法去做的，一些涉及到商业类型、合作类的就不做展示了。
+## 引言
 
+《Signalis》是一款由名为 Rose-Engine 的二人工作室开发的独立生存恐怖游戏，于 2022 年 10 月 27 日发行。不仅这是一款结合了像素艺术风格和科幻元素的游戏，还有有较常见的资源管理、道具解密与视角转换等元素。游戏中有较多频闪、快速切换镜头（闪回），心理恐怖的艺术呈现，而本文将结合游戏的故事情节和主题进行游戏的艺术分析。
 
-## 1. OG 灵感图库 - Rico OG
+## 回响
 
-OG 网站：[og.ricoui.com](https://og.ricoui.com)
+作为一个年轻的开发团队，该游戏在美术设计风格和游戏模式上并没有试图创新反而剑走偏锋选择了复古路线。甚至刻意的致敬让人不免会觉得这是否就是个缝合体游戏。但实际上随着深入了解，才发现这种重复其实是刻意为之。
 
-这是最近写文写累了，一时兴起开发的网站，耗时不到一周。它是一个专注于收集 OG（Open Graph）社交分享图的灵感网站。一周时间我搭建了一个 Beta 版本，一半时间花在视觉规范、基础功能搭建及技术栈选型上。
+> 齐泽克曾借鉴拉康的理论，强调在象征界中无法完全表达或处理的真实界部分。真实界的某些部分只能通过重复来接近和理解。
 
-功能上支持收藏、色彩模式切换和分类筛选，还包括详情页展示、推荐等；网站也配备了暗黑模式、多语言切换和站点提交功能。由于开发时间短，目前体量不大。
+在这个过程中，重复不是简单的再现，而是通过重新阐释和处理来实现新的理解和创新。由此可见，当你完完全全体验了《Signalis》的全流程后，那些重复并不是黔驴技穷的缝合，而是有意为之的回响。因为是重复的元素你能够以一种更接近其表意的状态去理解（因为在此之前已经有别的游戏为这种视觉冲击或者说符号冲击做了铺垫，当那种感觉和情景再现的时候，对玩家而言那可能不再是单一，干瘪的信息，或者说是开发者利用这种“调用”或者说让玩家自己在自己脑子查字典扩充词意的方法使得只言片语难以表达的东西通过象征成功表达了，这是开发者在理解上的巧思。而在创新层面来说，正因为你能明确的察觉这些元素好像借鉴了什么，但同时你也明确的感受到那份差异，而创新就在这差异和重复之间显现，你知道那是它，但又更不是它。
 
-后续考虑继续扩展的功能包括搜索功能、OG验证、扩展更多类型的灵感库、OG编辑器等。
+<figure class="my-8 flex flex-col items-center">
+  <img src={fig1.src} alt="如同《生化危机》的游戏节奏" class="rounded-lg shadow-md max-w-full" />
+  <figcaption class="mt-3 text-sm text-gray-500 dark:text-gray-400 text-center italic">
+    Figure 1: 如同《生化危机》的游戏节奏
+  </figcaption>
+</figure>
 
-![001-ricoog](001-ricoog.jpg)
+<figure class="my-8 flex flex-col items-center">
+  <img src={fig2.src} alt="如同《寂静岭》的游戏氛围" class="rounded-lg shadow-md max-w-full" />
+  <figcaption class="mt-3 text-sm text-gray-500 dark:text-gray-400 text-center italic">
+    Figure 2: 如同《寂静岭》的游戏氛围
+  </figcaption>
+</figure>
 
-<video
-  src="/videos/ricoog.mp4"
-  controls
-  width="100%"
-  style="max-width:1280px;height:auto;"
->
-  您的浏览器不支持视频播放。
-</video>
+<figure class="my-8 flex flex-col items-center">
+  <img src={fig3.src} alt="致敬《eva》的过场" class="rounded-lg shadow-md max-w-full" />
+  <figcaption class="mt-3 text-sm text-gray-500 dark:text-gray-400 text-center italic">
+    Figure 3: 致敬《eva》的过场
+  </figcaption>
+</figure>
 
----
+<figure class="my-8 flex flex-col items-center">
+  <img src={fig4.src} alt="致敬《攻壳机战队》的断臂" class="rounded-lg shadow-md max-w-full" />
+  <figcaption class="mt-3 text-sm text-gray-500 dark:text-gray-400 text-center italic">
+    Figure 4: 致敬《攻壳机战队》的断臂
+  </figcaption>
+</figure>
 
-## 2. GradientsHub
+## 轮回
 
-一站式渐变解决方案：[gradientshub.com](https://gradientshub.com/)
+先摘一份官方的游戏剧情介绍：
 
-Gradientshub 是一个长期的项目，目前不定期更新。目标是打造一个围绕着渐变设计的一站工具站，目前内容包括原创渐变背景、AI 生成图片，以及文字渐变、背景渐变、梯度色卡等生成工具集合与教学内容，形成完整的渐变解决方案。希望这个网站能为设计师和开发者提供协助，解决渐变设计中可能会遇到的问题。
+> **身陷梦魇，苦寻梦境**
+> 仿生人技工灵鹊从沉睡中醒来，发现自己置身一个充满怪异复古科技的世界，并踏上了寻找失踪搭档和失落梦境的旅程。
 
-![002-gradientshub.jpg](002-gradientshub.jpg)
+由这个简介我们可以得知该游戏的主线就是寻找失踪搭档以及梦境。为什么寻找这个动词会搭配梦境，为什么一个刚苏醒的人会寻找梦境，为什么身处梦魇还要寻找梦境？虽然简介过于简要，但其中显现的矛盾却精准地揭示了主题。尽管游戏没有直言所有发生的一切都只是梦，但处处剧情都让你怀疑你所处世界的真实性，梦的真相，通过种种细节对现实的否定而得到确认。
+由于游戏流程大概有八小时之久，无法面面俱到，所以在此我将针对游戏所暗含的梦的结构来进行分析。首先我们必须了解的是“生物共振”这个游戏设定，官方解释是能够感知和放大他人的感受和情感还有心理投射。而该游戏的主人公所寻找到搭档就是强大的生物共振者，不同于仿形体她作为能力者能够将其记忆，感情，施加于他人。
 
-我制作的原创渐变背景可以免费下载使用
+<figure class="my-8 flex flex-col items-center">
+  <img src={fig5.src} alt="当我读起过往的日记时，我总能忆起从未发生过的事" class="rounded-lg shadow-md max-w-full" />
+  <figcaption class="mt-3 text-sm text-gray-500 dark:text-gray-400 text-center italic">
+    Figure 5: 当我读起过往的日记时，我总能忆起从未发生过的事
+  </figcaption>
+</figure>
 
-![](003-freegradient.jpg)
+在地图探索过程种发现的日记上，可以明确的发现这个世界的人的记忆受到了某种侵蚀，本不该属于他的记忆被强加于自己身上。而造成这一切的就是生物共振者的亚瑞安妮。
 
-渐变生成工具 - CSS 文字渐变生成器
+<figure class="my-8 flex flex-col items-center">
+  <img src={fig6.src} alt="我困在了这里，困在了她和我之间。未成形的梦境和回忆" class="rounded-lg shadow-md max-w-full" />
+  <figcaption class="mt-3 text-sm text-gray-500 dark:text-gray-400 text-center italic">
+    Figure 6: 我困在了这里，困在了她和我之间。未成形的梦境和回忆
+  </figcaption>
+</figure>
 
-![](004-text-generator.jpg)
+韦恩·C·布斯曾在其著作《小说修辞学》（The Rhetoric of Fiction）中首次系统地提出了“不可靠叙事者”的概念。他认为，不可靠叙事者与作者之间存在着明显的差距，读者需要通过对文本的分析，识别出叙事者的偏见、错误或谎言。而这个游戏最不可靠的叙事者便是亚瑞安妮，也可以说是在这个梦里的每个人，毕竟所有人的记忆都是被篡改过的，甚至一些人物仅是为了造梦而从亚那瑞安原有的记忆力提炼出元素然后组合成的人。所以在游戏前期我们仅能把游戏当作某种现实闯关，但随着不可靠叙事者所建造的世界分崩离析，答案边浮出水面：是亚瑞安妮利用生物共振把灵鹊拉入了她的梦里。
 
-渐变生成工具 - CSS 多色渐变器
+## 梦是被压抑的欲望的满足
 
-![005-multi-color.jpg](005-multi-color.jpg)
+弗洛伊德曾认为，梦的内容往往是无意识中的被压抑欲望的象征性满足，而对于亚瑞安妮她的欲望则是她与灵鹊的诺言。她们所坐的飞船原本是为了寻找新的生存之地的敢死队飞船，但在第三千个周期的时候，系统通知她们飞船能源将要耗尽，等待她们的只有死亡，作为人类的亚瑞安妮不忍辐射泄漏的痛苦，与仿生体灵鹊许下诺言祈求她先她一步将她杀死，可灵鹊受深厚的情谊所牵，不忍动手并且先亚瑞安妮死亡，对此濒死的亚瑞安妮边发动了能力，将灵鹊的意识包裹进自己的梦中，并在无意识的情况下利用这个世界的剧情一步步的引导灵鹊实现诺言。甚至在此设想下其实我们所操纵的灵鹊可能都不再是实体的灵鹊，而是某种记忆的复制体，不过在一次次轮回中有了自己的意识，想起了自己的诺言。
 
-渐变生成工具 - 梯度色卡生成
+<figure class="my-8 flex flex-col items-center">
+  <img src={fig7.src} alt="苍鹰：像是所有事物都被拆得支离破碎" class="rounded-lg shadow-md max-w-full" />
+  <figcaption class="mt-3 text-sm text-gray-500 dark:text-gray-400 text-center italic">
+    Figure 7: 苍鹰:"像是所有事物都被拆得支离破碎…….又被某人生拼硬凑起来，而那人对此一无所知"
+  </figcaption>
+</figure>
 
-![006-color-palette-generator.jpg](006-color-palette-generator.jpg)
+## 强迫性重复
 
-除了上面展示的，还有其他的渐变工具和资源可以去探索一下。 纯属真诚之作~~
+进一步分析，我们可以想到在游戏中看到的所有事件都是灵鹊和亚瑞安妮心理创伤的再现。混杂着各种转喻，无中生有的死岛与感染，变异的仿生体等等。
 
----
+> 拉康认为强迫性重复是一种试图通过重复来解决某种未被象征化的创伤或冲突的行为。
 
-## 3 .网页灵感 InspoWeb
+由于这些创伤或冲突无法在象征界中被完全表达或理解，个体通过无意识的重复行为来尝试掌控或理解这些难以处理的体验。因此我们可以感觉到我们在游戏世界中可以体验到的是被选择过的，整个剧情流水都是被梦主设计过的，而在此之中灵鹊的死亡就重复了许多次。
 
-网站: [inspoweb.com](https://inspoweb.com)
+<figure class="my-8 flex flex-col items-center">
+  <img src={fig8.src} alt="被苍鹰再一次推落后灵鹊发现了自己曾经的尸体" class="rounded-lg shadow-md max-w-full" />
+  <figcaption class="mt-3 text-sm text-gray-500 dark:text-gray-400 text-center italic">
+    Figure 8: 被苍鹰再一次推落后灵鹊发现了自己曾经的尸体
+  </figcaption>
+</figure>
 
-Inspoweb.com 是我的网页灵感解决方案，目前已手动收录超过 200 个创意网页。作为网页设计师，我日常的习惯收藏优秀网页设计案例和视觉，也尝试过不少方案，最终我使用 Mkdirs 模板创建了这个网站，把我日常的收藏需求转化为网站收录，解决了设备和地点的收藏同步问题，也方便我专心分类整理，更意外的是，向外分享还带来了许多正面反馈，让我交到了更多朋友。
+## 结语
 
-如果你灵感枯竭，不妨来这里逛逛我的收藏。
-
-![inspoweb](007-inspowebcom.jpg)
-
-收录时，我打上了分类和标签，以及对应的界面截图，方便查看。
-
-![inspoweb2](008-inspowebcom.jpg)
-
----
-
-## 4. 设计资源 UIUXDECK
-
-网站：[uiuxdeck.com](https://uiuxdeck.com/)
-
-UIUXDECK 是满足我 UI/UX 设计需求的一个导航网站。我按照自己的设计需求和理念整合了界面灵感、设计规范、实用工具和组件库，甚至是开发和市场的一些工具，希望能够帮助提升设计专业性和效率。
-
-不管你是设计新手还是资深从业者，我认为这里的内容能为你的工作带来一些启发和便利。而且内容由我自己一一审核收录，保证了实用性和时效性，同样使用了 mkdirs。
-
-![uiuxdeck.jpg](009-uiuxdeck_com.jpg)
-
----
-
-## 5. 设计师博客 Ricoui
-
-网站地址： [ricoui.com](https://ricoui.com/)
-
-开源地址 Star⭐ 198 ： [https://github.com/ricocc/public-portfolio-site](https://github.com/ricocc/public-portfolio-site)
-
-设计师的个人网站/博客也是必不可少的项目，这个网站采用了我偏爱的技术栈和设计风格，设计上使用 Figma + Blender，开发框架选了对设计师更友好的 Astro.js。网站模板已开源到 Github，Star 数即将突破 200 啦。
-
-功能包括：首页作品筛选展示、项目展示及内页、博客及文章页、个人页面、暗黑模式、RSS、SEO 优化等，支持 markdown，也适合二次开发，内置了图片压缩功能。
-
-缺点是没有可视化后台，需通过部署、手动更改文件及内容集合更新，对无代码基础的用户不够友好。
-
-![ricoui.com.jpg](010-ricoui-com.jpg)
-
-![ricoui.com.jpg](011-ricoui-com.jpg)
-
----
-
-
-
-## 6. 网页版 Todo List
-
-开源项目 Star⭐ 222**：**[GitHub - uiineed-todo-list](https://github.com/ricocc/uiineed-todo-list)
-
-网站地址: [https://todo.uiineed.com/](https://todo.uiineed.com/)
-
-这是一个即开即用的网页版 TodoList，使用 Vue 开发，简单易用，可以下载学习或者自定义开发。目前这个简单的单页应用反而最受欢迎。由于出发点是 当初因为没找到符合自己需求的 “无广告极简待办工具”，就索性自己开发，所以对它的要求就是基础、干净简洁、即开即用、极简的视觉。
-
-优势是可直接下载后本地离线使用；缺点是不支持跨设备和浏览器自动同步数据。
-
-![todolist](012-todolist.jpg)
+作为一款心理恐怖游戏，开发者在设计上必然针对心理层面进行了理论研究与运用，由于篇幅的原因我只能浅显的分析了其在内容呈现上采用了梦的结构（尽管官方没有做出任何解释），游戏整体其实表意不明，各种说法都见仁见智。但无疑的是该作品游戏性欠佳，却有着远超于与之相似的竞品的文学性和艺术性。这意味着为恐怖类的独立游戏提供了新的创作思路，新的赛道。
 
 ---
 
-## 7. 3D 情人节图标和着陆页
+**参考文献：**
 
-Figma 地址：[https://www.figma.com/community/file/1363451172790940214/free-3d-icons-valentines-day](https://www.figma.com/community/file/1363451172790940214/free-3d-icons-valentines-day)
-
-着陆页：[valentine.uiuxdeck.com](https://valentine.uiuxdeck.com/)
-
-着陆页开源地址：[GitHub - free-3d-valentines-assets](https://github.com/ricocc/free-3d-valentines-assets)
-
-这是一套开源的情人节的图标，高清图片版本在 Figma 社区可以找到，同时我也做了一个着陆页，可以在着陆页上下载Blender的源文件。
-
-- ✨ 两套颜色的 Blender 源文件
-- ✨ Figma 社区文件
-- ✨ PNG 高清图 3000x3000
-
-![valentine3d-figma](013-valentine3d-figma.jpg)
-
-![valentine-landing.jpg](014-valentine-landing.jpg)
-
-
-
-## 最后
-
-我挑选展示的这些案例，类型和难度各不相同：有复杂全面的渐变站，有偏应用型的 TodoList，有依托模板二次开发的导航站，也有为开源服务的单页页面。他们用途不同，开发难度也不一样，但最终出发点和目标都是为我解决设计工作中的某一项具体需求，替代了我原本不满意或者过于复杂的工作流。甚至替代了原本需要付费使用的应用。
-
-那么回到出发点，设计探索开发能做什么？我觉得它是一个万能插件，无论在工作流程上还是个人需求，当你觉得需要一些解决方案的时候，编程的知识可以为你提供另一个角度，尤其在 AI Coding 的时代，我们并不需要从头到尾的去学习完整的编程原理、语法或者计算机基础等等，只要先理解开发的思维逻辑和基础工具，再借助 AI 让项目跑起来，后续的突破便指日可待。
-
-本质上，开发和平面、3D、剪辑一样，只是一项技能。根据具体需求，需要什么就学什么、用什么，并没有太多神秘感。
-
-对于 AI Coding，设计师也有优势所在，视觉和审美的领先就不用说了，我们来提两个设计师习以为常的能力：产品思维和组件化思想。
-
-* 产品思维
-
-AI Coding（或 Vibe Coding）让使用者更接近产品经理的角色。启动一个项目前，我们需要先和 AI 讨论产品定位、制定完整的架构，让 AI 输出一套详尽的产品文档，再基于文档编程。对于 AI Coding  而言，清晰详细的产品文档能让效率翻倍，而产品思维本就是设计师能力图谱的重要一环，二者结合，能形成相辅相成的效果。
-
-* 组件化思想
-
-组件化和Token对于设计师来说，也是工作中的老朋友了。而对于开发来说，则可以简单概括为“万物皆组件”。 前端的核心思想之一就是组件化，无论是 React、Vue、Angular 等框架，还是原生开发，都强调将页面拆分为独立、可复用的组件（如头部组件、列表项组件、弹窗组件等）。所有复杂项目都能拆分成一个个模块组件，每个组件负责特定功能，这不仅降低了开发难度，还能在出错时精准定位问题。 从组件入手逐步完成完整项目，是很高效的路径。值得一提的是，组件化思维并非每个开发者都具备，它其实是一项重要能力，而设计师早已在日常工作中熟悉了这种逻辑。
-
-原本以为上一篇《前端自学建议》已经讲得足够清楚，但仍有不少设计师朋友提出疑问，不知道从何入手，不知道要去做些什么，于是有了这篇补充。从案例到观点的补充说明，这两篇内容应该能解答大部分问题了。
-
-如果你不知道该从何进入开发的世界，不妨参考我上面的案例：从自己的日常需求切入，找到一个具体问题，尝试用编程思维寻找解决方案，兴趣是最好的开始。当第一个最小可行化的项目成功跑起来，后面就自然而然的进入加速期了。
-
-目前我已进入下一阶段的设计与开发，正在探索更完整、更有难度的项目，期待未来能产出更棒、更有趣的作品。
-
-
-再次自我介绍一下，我是Rico,  网页设计师和兴趣使然的开发者，我目前除了继续在设计和开发中探索，也在进行着内容创作，主要方向和设计类文章和 AI Coding 经验总结。
-
-如果对我做的这些小东西感兴趣的话，欢迎一块儿交流，交个朋友！
-
-
-
-
-<div class="wx" style="margin-top:48px;">
-  <p>	关注我的微信公众号，我在这里专注文字创作</p>
-  <img
-    src="/assets/about/wx.png"
-    alt="微信公众号"
-    class="wx-img"
-  />
-</div>
-
-
-
+* 【1】齐泽克，《少于无：黑格尔与辩证唯物主义的阴影》
+* 【2】韦恩·C·布斯，《小说修辞学》
+* 【3】弗洛伊德，《梦的解析》
+* 【4】拉康，精神分析研讨班
+* 【5】Signalis，维基百科

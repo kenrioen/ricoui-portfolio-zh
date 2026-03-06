@@ -1,0 +1,926 @@
+---
+import { ArrowLeft } from "@lucide/astro";
+import PostLayout from "@/layouts/PostLayout.astro";
+import PageHeader from "@/components/elements/PageHeader.astro";
+import SeparatorLine from "@/components/elements/SeparatorLine.astro";
+import works from "@/collections/works.json";
+
+export async function getStaticPaths() {
+  return works.filter(work => work.slug).map(work => ({
+    params: { slug: work.slug }
+  }));
+}
+
+const { slug } = Astro.params;
+const work = works.find(w => w.slug === slug);
+
+if (!work) {
+  return Astro.redirect("/works");
+}
+---
+
+<PostLayout
+	title={work.name}
+	description={work.content?.summary || work.description || ""}
+	keywords={work.tags?.join(", ") || ""}
+>
+	<div class="work article">
+		<main class="work-wrapper">
+			<!-- 返回按钮 -->
+			<div class="site-container m-auto mb-6">
+				<a
+					href="/works"
+					class="inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300 mb-8"
+				>
+					<ArrowLeft size={16} />
+					<span>返回作品集</span>
+				</a>
+
+				<PageHeader
+					title={work.name}
+					tags={work.tags}
+					className="mb-6 md:mb-8"
+				/>
+			</div>
+
+			<div class="site-container m-auto">
+				<SeparatorLine />
+			</div>
+
+			{work.heroImage && (
+				<div class="site-container mx-auto mt-8">
+					<div class="overflow-hidden rounded-2xl">
+						<img
+							src={work.heroImage}
+							alt={work.name}
+							class="w-full h-auto object-cover"
+							loading="lazy"
+						/>
+					</div>
+				</div>
+			)}
+
+			<!-- 项目详情区域 -->
+			<section class="article-content">
+				<div class="site-container mx-auto my-8 md:my-16">
+					
+					<!-- 1. 项目介绍区 (Design Statement) - 左右两栏不对称布局 -->
+					<div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-16">
+						<!-- 左侧：项目元数据 (1/3) -->
+						<div class="md:col-span-1 space-y-6">
+							<div>
+								<h3 class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-2">
+									项目名称
+								</h3>
+								<p class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+									{work.name}
+								</p>
+							</div>
+							
+							<div>
+								<h3 class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-2">
+									类别
+								</h3>
+								<p class="text-lg text-neutral-800 dark:text-neutral-200">
+									音乐专辑 / 视觉传达 / 产品落地
+								</p>
+							</div>
+							
+							{work.tags && work.tags.length > 0 && (
+								<div>
+									<h3 class={`text-sm font-semibold uppercase tracking-wider mb-3 ${work.slug === 'the-botanists-lag' ? 'text-green-500' : 'text-neutral-500 dark:text-neutral-400'}`}>
+										标签
+									</h3>
+									<div class="flex flex-wrap gap-2">
+										{work.tags.map((tag) => (
+											<span class={`px-3 py-1 text-sm rounded-full ${work.slug === 'the-botanists-lag' ? 'bg-green-900/30 text-green-400 border border-green-500/50' : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300'}`}>
+												{tag}
+											</span>
+										))}
+									</div>
+								</div>
+							)}
+						</div>
+						
+						<!-- 右侧：核心理念与说明 (2/3) - 带逐段淡入动效 -->
+						<div class="md:col-span-2 space-y-6">
+							{work.slug === 'the-botanists-lag' ? (
+								<!-- 观山杯音乐专辑专用布局 -->
+								<div 
+									class="p-4 md:p-5 rounded-xl"
+									data-aos="fade-up"
+									data-aos-duration="800"
+									data-aos-delay="100"
+								>
+									<h3 class="text-sm font-semibold text-neutral-600 dark:text-neutral-400 mb-2.5 flex items-center gap-2">
+										<span class="w-1 h-4 bg-green-500 rounded-full"></span>
+										关于专辑
+									</h3>
+									<p class="text-sm md:text-base text-neutral-700 dark:text-neutral-300 leading-snug">
+										设计动机是受友人委托，为他新作的专辑设计视觉全案。这算是我第一次做有关实体专辑的设计，反反复复修改多次很是紧张，因为我相信这对于我的友人来说也是很重要的专辑，其中真挚的感情听者必会有所体会，最后这张专辑也是顺利落地，并取得了不错的销售额。
+										后面为了能给友人这张专辑更好的呈现形式，我利用 godot 引擎定制了起专属的交互式 cd 播放机
+									</p>
+								</div>
+							) : work.slug === 'knights-poker' ? (
+								<!-- Knights Poker 扑克牌专用布局 -->
+								<div 
+									class="p-4 md:p-5 rounded-xl bg-[#fcfbf9] dark:bg-neutral-900"
+									data-aos="fade-up"
+									data-aos-duration="800"
+									data-aos-delay="100"
+								>
+									
+								</div>
+							) : (
+								<!-- 林间鸟原有布局 -->
+								<>
+									<div 
+										class="p-4 md:p-5 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 rounded-xl border border-blue-100 dark:border-blue-800/30"
+										data-aos="fade-up"
+										data-aos-duration="800"
+										data-aos-delay="100"
+									>
+										<h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-2.5 flex items-center gap-2">
+											<span class="w-1 h-4 bg-blue-500 rounded-full"></span>
+											设计动机
+										</h3>
+										<p class="text-sm md:text-base font-medium text-blue-800 dark:text-blue-200 leading-snug">
+											"北林拥有得天独厚的自然生态，但我发现许多日常栖息在校园里的鸟类对同学们来说却形同'熟悉的陌生人'。本项目旨在通过视觉干预，将传统的生物科普转化为生动亲切的校园文化符号。"
+										</p>
+									</div>
+									
+									<div 
+										class="space-y-4"
+										data-aos="fade-up"
+										data-aos-duration="800"
+										data-aos-delay="200"
+									>
+										<h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+											<span class="w-1 h-6 bg-indigo-500 rounded-full"></span>
+											视觉转化与落地
+										</h3>
+										<p class="text-neutral-700 dark:text-neutral-300 leading-relaxed text-lg">
+											设计提取了夜鹭、灰喜鹊、乌鸫等校园常见鸟类，摒弃了传统科普图鉴的刻板印象，采用现代扁平化与几何切割风格重构形体特征。在明信片延展中，进一步将鸟类与学研大厦、博物馆等标志性建筑及黄刺玫、银杏等特色植物进行视觉拼贴与重组。
+										</p>
+										<p class="text-neutral-700 dark:text-neutral-300 leading-relaxed text-lg">
+											有别于停留在屏幕上的概念稿，全套视觉最终投入实体打样，落地为纸质贴纸、滴胶贴纸与明信片等实体周边，并在北林校友会及绿色产融嘉年华等线下活动中完成了真实的销售转化与市场验证。
+										</p>
+									</div>
+								</>
+							)}
+						</div>
+					</div>
+
+					{work.slug === 'the-botanists-lag' ? (
+						<!-- 观山杯沉浸式暗黑主题 -->
+						<div class="bg-black text-zinc-100 -mx-4 px-4 md:-mx-8 md:px-8 py-12">
+							
+
+
+							<!-- Godot 交互播放器嵌入 -->
+							<div class="mb-16">
+								<h2 
+									class="text-2xl md:text-3xl font-bold mb-8 text-center"
+									style="color: #22c55e;"
+									data-aos="fade-up"
+									data-aos-duration="800"
+								>
+									交互式音乐播放器
+								</h2>
+								
+								<div 
+									class="w-full max-w-5xl mx-auto aspect-video rounded-xl overflow-hidden"
+									data-aos="fade-up"
+									data-aos-duration="800"
+									data-aos-delay="100"
+								>
+									<iframe 
+										src="/assets/projects/botanist-player/index.html"
+										title="观山杯 - Interactive Music Player"
+										class="w-full h-full border-0"
+										loading="lazy"
+										allow="autoplay; fullscreen"
+									></iframe>
+								</div>
+							</div>
+
+							<!-- 曲目列表 + 封面 -->
+							<div class="mb-16">
+								<h2 
+									class="text-2xl md:text-3xl font-bold mb-8 text-center"
+									style="color: #22c55e;"
+									data-aos="fade-up"
+									data-aos-duration="800"
+								>
+									曲目列表
+								</h2>
+								
+								<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-5xl mx-auto items-start">
+									<!-- 左侧：封面 -->
+									<div class="lg:col-span-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+										<img
+											src="/assets/projects/botanist-lag/cover.png"
+											alt="观山杯专辑封面"
+											class="w-full aspect-square object-cover rounded-lg shadow-lg shadow-green-900/20"
+											loading="lazy"
+										/>
+										<div class="mt-4 text-center">
+											<h3 class="text-lg font-bold" style="color: #22c55e;">观山杯</h3>
+											<p class="text-sm text-zinc-500 mt-1">2025 </p>
+										</div>
+									</div>
+									
+									<!-- 右侧：曲目列表 -->
+									<div class="lg:col-span-2 space-y-3 pt-[45px]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+										{[
+											{ track: "01", title: "观山杯", time: "3:42" },
+											{ track: "02", title: "忠山", time: "4:15" },
+											{ track: "03", title: "不高山", time: "3:58" },
+											{ track: "04", title: "假山", time: "4:22" },
+											{ track: "05", title: "宝藏山", time: "5:02" }
+										].map((item, index) => (
+											<div class="flex items-center justify-between p-4 rounded-lg bg-zinc-900/50 border border-zinc-800 hover:border-green-500/50 transition-colors duration-300">
+												<div class="flex items-center gap-4">
+													<span class="text-sm font-medium text-zinc-500 w-6">{item.track}</span>
+													<span class="text-base font-medium text-zinc-200">{item.title}</span>
+												</div>
+												<span class="text-sm text-zinc-500">{item.time}</span>
+											</div>
+										))}
+									</div>
+								</div>
+							</div>
+
+							<!-- 实体装帧设计 -->
+							<div class="mb-16">
+								<h2 
+									class="text-2xl md:text-3xl font-bold mb-8 text-center"
+									style="color: #22c55e;"
+									data-aos="fade-up"
+									data-aos-duration="800"
+								>
+									实体装帧设计
+								</h2>
+								
+								<!-- 顶部：观山杯效果图 -->
+								<div class="max-w-5xl mx-auto mb-8" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+									<img
+										src="/assets/projects/botanist-lag/mockup.png"
+										alt="观山杯效果图 - 主视觉"
+										class="w-full h-auto rounded-lg shadow-2xl shadow-green-900/10"
+										loading="lazy"
+									/>
+								</div>
+								
+								<!-- 三列：歌词本内页 -->
+								<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+									{[
+										{ src: "/assets/projects/botanist-lag/lyric-1.png", alt: "歌词本内页 1" },
+										{ src: "/assets/projects/botanist-lag/lyric-2.png", alt: "歌词本内页 2" },
+										{ src: "/assets/projects/botanist-lag/lyric-3.png", alt: "歌词本内页 3" }
+									].map((item, index) => (
+										<div class="group relative overflow-hidden rounded-lg transition-all duration-300 hover:-translate-y-2">
+											<div class="absolute inset-0 bg-gradient-to-t from-green-500/0 to-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+											<img
+												src={item.src}
+												alt={item.alt}
+												class="w-full h-auto object-cover"
+												loading="lazy"
+											/>
+										</div>
+									))}
+								</div>
+							</div>
+
+							
+						</div>
+					) : work.slug === 'knights-poker' ? (
+						<!-- Knights Poker 扑克牌专用布局 -->
+						<div class="bg-[#fcfbf9] dark:bg-neutral-950 -mx-4 px-4 md:-mx-8 md:px-8 py-16">
+							
+							<!-- 头部：设计动机与视觉转化 -->
+							<div class="max-w-4xl mx-auto mb-16">
+								<!-- 设计动机 -->
+								<div 
+									class="p-6 md:p-8 rounded-xl mb-16"
+									data-aos="fade-up"
+									data-aos-duration="800"
+									data-aos-delay="100"
+								>
+									<h3 class="text-base md:text-lg font-semibold text-neutral-600 dark:text-neutral-400 mb-4 flex items-center gap-2">
+										<span class="w-1.5 h-5 bg-amber-500 rounded-full"></span>
+										设计动机
+									</h3>
+									<p class="text-base md:text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
+										受甘肃博物馆《钢铁与荣耀》特展启发，我试图探讨"骑士精神"在现代社会的视觉延续。项目将中世纪骑士与现代犬类建立情感映射，以扑克牌为载体，打造一套兼顾历史厚重感与现代情感共鸣的文创周边。
+									</p>
+								</div>
+								
+								<!-- 视觉转化与实体装帧 -->
+								<div 
+									class="p-6 md:p-8 rounded-xl"
+									data-aos="fade-up"
+									data-aos-duration="800"
+									data-aos-delay="200"
+								>
+									<h3 class="text-base md:text-lg font-semibold text-neutral-600 dark:text-neutral-400 mb-4 flex items-center gap-2">
+										<span class="w-1.5 h-5 bg-amber-500 rounded-full"></span>
+										视觉转化与实体装帧
+									</h3>
+									<p class="text-base md:text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
+										摒弃了传统的宫廷人头牌，J、Q、K 创新性地采用"骑士与犬"上下镜像的二分构图（如边牧代表智慧，德牧代表勇敢）。数字牌则提取了展览中的真实兵器藏品。全套视觉采用红黑双色与单色蚀刻版画风格，最终落地为实体扑克与定制包装，呈现了一场跨越时空的牌桌对局。
+									</p>
+								</div>
+							</div>
+							
+							<!-- 3D 扑克牌扇形展台 -->
+							<div class="h-[1200px] w-full relative flex justify-center items-center overflow-hidden mb-16" id="poker-container">
+								<!-- 9 张扑克牌 -->
+								{[0, 1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+									<div 
+										class={`poker-card absolute w-[210px] h-[315px] cursor-pointer transition-all duration-[2000] ease-out`}
+										data-index={index}
+										style={{
+											transform: 'rotateY(0deg)',
+											transformStyle: 'preserve-3d',
+											transformOrigin: 'center center',
+											left: '50%',
+											top: '50%',
+											marginLeft: '-105px',
+											marginTop: '-157.5px'
+										}}
+									>
+										<!-- 牌面（正面） -->
+										<div 
+											class="absolute inset-0 rounded-xl shadow-2xl"
+											style={{
+												backfaceVisibility: 'hidden',
+												transform: 'rotateY(180deg)'
+											}}
+										>
+											<img
+												src={`/assets/projects/knights-poker/card-front-${index + 1}.png`}
+												alt={`扑克牌正面 ${index + 1}`}
+												class="w-full h-full object-cover rounded-xl"
+												loading="lazy"
+											/>
+										</div>
+										
+										<!-- 牌背（背面） -->
+										<div 
+											class="absolute inset-0 rounded-xl shadow-2xl"
+											style={{
+												backfaceVisibility: 'hidden',
+												transform: 'rotateY(0deg)'
+											}}
+										>
+											<img
+												src="/assets/projects/knights-poker/card-back.png"
+												alt="扑克牌背面"
+												class="w-full h-full object-cover rounded-xl"
+												loading="lazy"
+											/>
+										</div>
+									</div>
+								))}
+								
+								<!-- 互动提示文本 -->
+								<div 
+									class="interactive-hint absolute bottom-[20%] left-1/2 text-neutral-500 dark:text-neutral-400 text-sm md:text-base tracking-widest"
+									style={{
+										opacity: '1',
+										transition: 'opacity 0.5s ease',
+										transform: 'translateX(-50%)'
+									}}
+								>
+									点击互动牌组
+								</div>
+							</div>
+							
+							<!-- 实体装帧：2x2 Mockups Grid -->
+							<div class="max-w-5xl mx-auto mb-24" data-aos="fade-up" data-aos-duration="800">
+								<h2 class="text-xl md:text-2xl font-bold text-neutral-800 dark:text-neutral-200 mb-8 text-center">
+									实体装帧：跨越时空的对局
+								</h2>
+								
+								<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 mb-24">
+									<!-- Mockup 1 -->
+									<div class="overflow-hidden rounded-xl shadow-lg shadow-black/5 transition-transform hover:-translate-y-1 hover:shadow-2xl">
+										<img
+											src="/assets/projects/knights-poker/mockup-1.png"
+											alt="Knights Poker 实体效果图 1"
+											class="w-full h-auto object-cover aspect-[4/3]"
+											loading="lazy"
+										/>
+									</div>
+									
+									<!-- Mockup 2 -->
+									<div class="overflow-hidden rounded-xl shadow-lg shadow-black/5 transition-transform hover:-translate-y-1 hover:shadow-2xl">
+										<img
+											src="/assets/projects/knights-poker/mockup-2.png"
+											alt="Knights Poker 实体效果图 2"
+											class="w-full h-auto object-cover aspect-[4/3]"
+											loading="lazy"
+										/>
+									</div>
+									
+									<!-- Mockup 3 -->
+									<div class="overflow-hidden rounded-xl shadow-lg shadow-black/5 transition-transform hover:-translate-y-1 hover:shadow-2xl">
+										<img
+											src="/assets/projects/knights-poker/mockup-3.png"
+											alt="Knights Poker 实体效果图 3"
+											class="w-full h-auto object-cover aspect-[4/3]"
+											loading="lazy"
+										/>
+									</div>
+									
+									<!-- Mockup 4 -->
+									<div class="overflow-hidden rounded-xl shadow-lg shadow-black/5 transition-transform hover:-translate-y-1 hover:shadow-2xl">
+										<img
+											src="/assets/projects/knights-poker/mockup-4.png"
+											alt="Knights Poker 实体效果图 4"
+											class="w-full h-auto object-cover aspect-[4/3]"
+											loading="lazy"
+										/>
+									</div>
+								</div>
+							</div>
+
+							<!-- 全套牌面展示 -->
+							<div class="max-w-6xl mx-auto" data-aos="fade-up" data-aos-duration="800">
+								<img
+									src="/assets/projects/knights-poker/full-deck.png"
+									alt="Knights Poker 全套牌面展示"
+									class="w-full h-auto block rounded-lg shadow-xl"
+									loading="lazy"
+								/>
+							</div>
+						</div>
+					) : (
+					<div class="mb-16">
+						<h2 
+							class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-12 text-center"
+							data-aos="fade-up"
+							data-aos-duration="800"
+						>
+							纸质与滴胶贴纸
+						</h2>
+						
+						<!-- 单列竖排布局，移除所有背景色和边框 -->
+						<div class="flex flex-col items-center gap-24">
+							<div 
+								class="tilt-container w-full max-w-4xl"
+								data-aos="fade-up"
+								data-aos-duration="800"
+								data-aos-delay="100"
+							>
+								<img
+									src="/assets/projects/bird-paper.png"
+									alt="林间鸟 - 纸质贴纸效果"
+									class="tilt-image w-full h-auto object-contain cursor-pointer"
+									loading="lazy"
+								/>
+							</div>
+							
+							<div 
+								class="tilt-container w-full max-w-4xl"
+								data-aos="fade-up"
+								data-aos-duration="800"
+								data-aos-delay="200"
+							>
+								<img
+									src="/assets/projects/bird-resin.png"
+									alt="林间鸟 - 滴胶贴纸效果"
+									class="tilt-image w-full h-auto object-contain cursor-pointer"
+									loading="lazy"
+								/>
+							</div>
+						</div>
+					</div>
+
+					<!-- 3. 实拍落地展示区 (Real-life Photos) - Bento Grid 风格（保持不变） -->
+					<div class="mb-16">
+						<h2 
+							class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-4 text-center"
+							data-aos="fade-up"
+							data-aos-duration="800"
+						>
+							售卖实拍
+						</h2>
+						
+						<p 
+							class="text-neutral-600 dark:text-neutral-400 text-center mb-8 max-w-2xl mx-auto"
+							data-aos="fade-up"
+							data-aos-duration="800"
+							data-aos-delay="100"
+						>
+							该系列曾在北林校友会及绿色产融嘉年华售卖，几乎完售。
+						</p>
+						
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+							{[1, 2, 3, 4].map((num, index) => (
+								<div 
+									class="group relative overflow-hidden rounded-2xl bg-white dark:bg-neutral-800 shadow-xl shadow-blue-900/10 dark:shadow-blue-900/20"
+									data-aos="fade-up"
+									data-aos-duration="800"
+									data-aos-delay={index * 100}
+								>
+									<div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+									<img
+										src={`/assets/projects/live-${num}.jpg`}
+										alt={`林间鸟 - 实拍展示 ${num}`}
+										class="w-full h-auto object-cover transform transition-all duration-500 group-hover:scale-105"
+										loading="lazy"
+									/>
+								</div>
+							))}
+						</div>
+					</div>
+
+					<!-- 4. 3D 翻转明信片轮播模块 (Postcard Carousel) -->
+					<div class="mb-16">
+						<h2 
+							class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-8 text-center"
+							data-aos="fade-up"
+							data-aos-duration="800"
+						>
+							明信片集
+						</h2>
+						
+						<div 
+							class="relative w-full max-w-4xl mx-auto mb-[208px]"
+							id="postcard-carousel"
+							data-aos="fade-up"
+							data-aos-duration="800"
+							data-aos-delay="100"
+							style="aspect-ratio: 1749/1182;"
+						>
+							<!-- Slide 1 -->
+							<div class="carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100 z-10" data-index="0">
+								<div class="group w-full h-full [perspective:1000px]">
+									<div class="relative w-full h-full duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl shadow-gray-300/50 rounded-lg">
+										<div class="absolute inset-0 [backface-visibility:hidden]">
+											<img src="/assets/projects/postcards/card-1-front.png" alt="林间晨曦 - 正面" class="w-full h-full object-contain" loading="lazy" />
+										</div>
+										<div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+											<img src="/assets/projects/postcards/card-1-back.png" alt="林间晨曦 - 背面" class="w-full h-full object-contain" loading="lazy" />
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<!-- Slide 2 -->
+							<div class="carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0" data-index="1">
+								<div class="group w-full h-full [perspective:1000px]">
+									<div class="relative w-full h-full duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl shadow-gray-300/50 rounded-lg">
+										<div class="absolute inset-0 [backface-visibility:hidden]">
+											<img src="/assets/projects/postcards/card-2-front.png" alt="树影婆娑 - 正面" class="w-full h-full object-contain" loading="lazy" />
+										</div>
+										<div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+											<img src="/assets/projects/postcards/card-2-back.png" alt="树影婆娑 - 背面" class="w-full h-full object-contain" loading="lazy" />
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<!-- Slide 3 -->
+							<div class="carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0" data-index="2">
+								<div class="group w-full h-full [perspective:1000px]">
+									<div class="relative w-full h-full duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl shadow-gray-300/50 rounded-lg">
+										<div class="absolute inset-0 [backface-visibility:hidden]">
+											<img src="/assets/projects/postcards/card-3-front.png" alt="鸟语花香 - 正面" class="w-full h-full object-contain" loading="lazy" />
+										</div>
+										<div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+											<img src="/assets/projects/postcards/card-3-back.png" alt="鸟语花香 - 背面" class="w-full h-full object-contain" loading="lazy" />
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<!-- Slide 4 -->
+							<div class="carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0" data-index="3">
+								<div class="group w-full h-full [perspective:1000px]">
+									<div class="relative w-full h-full duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl shadow-gray-300/50 rounded-lg">
+										<div class="absolute inset-0 [backface-visibility:hidden]">
+											<img src="/assets/projects/postcards/card-4-front.png" alt="生态和谐 - 正面" class="w-full h-full object-contain" loading="lazy" />
+										</div>
+										<div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+											<img src="/assets/projects/postcards/card-4-back.png" alt="生态和谐 - 背面" class="w-full h-full object-contain" loading="lazy" />
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<!-- 指示器 -->
+							<div class="absolute -bottom-[120px] left-1/2 transform -translate-x-1/2 flex space-x-3">
+								<button class="carousel-dot w-3 h-3 rounded-full bg-blue-500 transition-all duration-300" data-target="0" aria-label="切换到第 1 张明信片"></button>
+								<button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" data-target="1" aria-label="切换到第 2 张明信片"></button>
+								<button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" data-target="2" aria-label="切换到第 3 张明信片"></button>
+								<button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" data-target="3" aria-label="切换到第 4 张明信片"></button>
+							</div>
+						</div>
+					</div>
+
+					<!-- 5. 沉浸式长图海报 (Promo Banner) - 使用原生 img 标签完整展示 -->
+					<div class="mb-16">
+						<div 
+							class="w-full"
+							data-aos="fade-up"
+							data-aos-duration="1000"
+						>
+							<img
+								src="/assets/projects/long-promo.jpg"
+								alt="林间鸟 - 宣传海报"
+								class="w-full h-auto block"
+								loading="lazy"
+							/>
+						</div>
+					</div>
+					)}
+
+					<!-- 6. 底部导航 - 返回按钮 -->
+				<div class="flex justify-center mb-12">
+					<a
+						href="/works"
+						class={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${work.slug === 'the-botanists-lag' ? 'bg-green-600 hover:bg-green-700 text-white shadow-green-900/30' : 'bg-primary hover:bg-primary-dark text-white shadow-primary/30'}`}
+						data-aos="fade-up"
+						data-aos-duration="800"
+					>
+						<ArrowLeft size={18} />
+						<span>返回作品集</span>
+					</a>
+				</div>
+
+				</div>
+			</section>
+		</main>
+	</div>
+	
+	{work.slug === 'the-botanists-lag' && (
+		<style is:global>
+			.work {
+				background-color: #000000 !important;
+			}
+			.work article, 
+			.work .article-content,
+			.work .work-wrapper,
+			.work main,
+			.work > div:not(.work) {
+				background-color: #000000 !important;
+			}
+			body {
+				background-color: #000000 !important;
+				color: #f4f4f5 !important;
+			}
+			/* 观山杯页面标题颜色覆盖为绿色 */
+			.work .font-brand {
+				color: #22c55e !important;
+			}
+			.work h2.font-brand {
+				color: #22c55e !important;
+			}
+			/* 所有标题改为绿色 */
+			.work h3.text-sm.font-semibold,
+			.work .text-primary,
+			.work [class*="text-blue"],
+			.work [class*="text-indigo"] {
+				color: #22c55e !important;
+			}
+			.work .hover\:text-primary:hover,
+			.work .hover\:text-blue-500:hover {
+				color: #22c55e !important;
+			}
+		</style>
+	)}
+</PostLayout>
+
+<!-- 3D 倾斜交互脚本 -->
+<script>
+(() => {
+  // 获取所有倾斜图片
+  const tiltImages = document.querySelectorAll('.tilt-image');
+  
+  tiltImages.forEach(img => {
+    // 鼠标移动时的倾斜效果
+    img.addEventListener('mousemove', (e) => {
+      const rect = img.getBoundingClientRect();
+      const imgWidth = rect.width;
+      const imgHeight = rect.height;
+      
+      // 计算鼠标在图片内的相对位置（-1 到 1）
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      
+      // 转换为 -1 到 1 的范围
+      const normalizeX = (mouseX / imgWidth) * 2 - 1;
+      const normalizeY = (mouseY / imgHeight) * 2 - 1;
+      
+      // 计算旋转角度（最大 15 度）
+      const rotateY = normalizeX * 15; // 左右翻转
+      const rotateX = -normalizeY * 15; // 上下翻转
+      
+      // 应用 3D 变换
+      img.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+    
+    // 鼠标离开时恢复原状
+    img.addEventListener('mouseleave', () => {
+      img.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    });
+    
+    // 鼠标进入时设置过渡效果
+    img.addEventListener('mouseenter', () => {
+      img.style.transition = 'transform 0.2s ease-out';
+    });
+    
+    // 鼠标移动时移除过渡效果（减少延迟）
+    img.addEventListener('mousemove', () => {
+      img.style.transition = 'none';
+    });
+  });
+  
+  // Knights Poker 3D 扑克牌 3x3 网格展开交互
+  const pokerCards = document.querySelectorAll('.poker-card');
+  const container = document.getElementById('poker-container');
+  const hint = document.querySelector('.interactive-hint');
+  if (pokerCards.length > 0 && container) {
+    let isExpanded = false;
+    
+    // 计算 3x3 网格位置
+    const getGridPosition = (index) => {
+      const row = Math.floor(index / 3);
+      const col = index % 3;
+      
+      // 每张牌间距：牌宽 210px + 间距 120px = 330px
+      // 3x3 网格中心点为 (1, 1)
+      const gap = 330;
+      const offsetX = (col - 1) * gap;
+      const offsetY = (row - 1) * gap;
+      
+      return { x: offsetX, y: offsetY };
+    };
+    
+    // 呼吸动画
+    let breathPhase = 0;
+    const animateBreath = () => {
+      if (!isExpanded && hint) {
+        breathPhase += 0.03;
+        const opacity = 0.4 + Math.sin(breathPhase) * 0.4; // 0.0 - 0.8
+        const scale = 1 + Math.sin(breathPhase * 0.8) * 0.08; // 0.92 - 1.08
+        
+        hint.style.opacity = opacity.toString();
+        hint.style.transform = `translateX(-50%) scale(${scale})`;
+      }
+      requestAnimationFrame(animateBreath);
+    };
+    animateBreath();
+    
+    // 点击容器展开/收起
+    container.addEventListener('click', () => {
+      isExpanded = !isExpanded;
+      
+      // 隐藏提示文本
+      if (hint) {
+        hint.style.opacity = '0';
+      }
+      
+      if (isExpanded) {
+        // 展开到 3x3 网格 - 依次排布
+        pokerCards.forEach((card, index) => {
+          const pos = getGridPosition(index);
+          
+          // 每张牌依次延迟 100ms 开始移动
+          setTimeout(() => {
+            card.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), z-index 0.3s';
+            card.style.transform = `translate(${pos.x}px, ${pos.y}px) rotateY(180deg)`;
+            card.style.zIndex = '10';
+          }, index * 100);
+        });
+      } else {
+        // 收起到中心堆叠 - 依次收回
+        pokerCards.forEach((card, index) => {
+          // 从最后一张牌开始依次收回
+          const reverseIndex = pokerCards.length - 1 - index;
+          
+          setTimeout(() => {
+            card.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), z-index 0.3s';
+            card.style.transform = 'translate(0px, 0px) rotateY(0deg)';
+            card.style.zIndex = reverseIndex;
+          }, index * 80);
+        });
+        
+        // 显示提示文本
+        setTimeout(() => {
+          if (hint) {
+            hint.style.opacity = '1';
+          }
+        }, pokerCards.length * 80 + 300);
+      }
+    });
+    
+    // 阶段 B：悬停抽牌交互
+    pokerCards.forEach((card, index) => {
+      card.addEventListener('mouseenter', () => {
+        // 悬停时置顶并抽出
+        card.style.zIndex = '50';
+        card.style.transition = 'transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), z-index 0.1s';
+        
+        // 在原有角度基础上向外抽出
+        const currentTransform = card.style.transform;
+        const rotateYMatch = currentTransform.match(/rotateY\(([^)]+)\)/);
+        const rotateY = rotateYMatch ? rotateYMatch[1] : '0deg';
+        
+        const translateMatch = currentTransform.match(/translate\(([^)]+)\)/);
+        const translate = translateMatch ? translateMatch[1] : '0px, 0px';
+        
+        card.style.transform = `translate(${translate}) rotateY(${rotateY}) scale(1.15)`;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        // 恢复原始位置
+        card.style.zIndex = isExpanded ? '10' : index;
+        card.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), z-index 0.3s';
+        
+        if (isExpanded) {
+          const pos = getGridPosition(index);
+          card.style.transform = `translate(${pos.x}px, ${pos.y}px) rotateY(180deg)`;
+        } else {
+          card.style.transform = 'translate(0px, 0px) rotateY(0deg)';
+        }
+      });
+    });
+  }
+})();
+</script>
+
+<!-- 明信片轮播交互脚本 -->
+<script>
+	function initCarousel() {
+		const slides = document.querySelectorAll('.carousel-slide');
+		const dots = document.querySelectorAll('.carousel-dot');
+		
+		if(!slides.length || !dots.length) return;
+
+		dots.forEach((dot, index) => {
+			dot.addEventListener('click', () => {
+				// 更新所有 slide
+				slides.forEach((slide, i) => {
+					if (i === index) {
+						slide.classList.remove('opacity-0', 'z-0');
+						slide.classList.add('opacity-100', 'z-10');
+					} else {
+						slide.classList.remove('opacity-100', 'z-10');
+						slide.classList.add('opacity-0', 'z-0');
+					}
+				});
+				
+				// 更新所有 dot 的样式
+				dots.forEach((d, i) => {
+					if (i === index) {
+						d.classList.replace('bg-gray-300', 'bg-blue-500');
+						d.classList.add('scale-110');
+					} else {
+						d.classList.replace('bg-blue-500', 'bg-gray-300');
+						d.classList.remove('scale-110');
+					}
+				});
+			});
+		});
+	}
+
+	// 确保在 Astro 页面切换时也能触发
+	document.addEventListener('astro:page-load', initCarousel);
+	document.addEventListener('DOMContentLoaded', initCarousel);
+</script>
+
+<style>
+/* 3D 倾斜图片样式 */
+.tilt-container {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tilt-image {
+  transform-style: preserve-3d;
+  will-change: transform;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 深色模式下的阴影调整 */
+.dark .tilt-image {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 指示器按钮悬停效果 */
+.carousel-dot:hover {
+  transform: scale(1.2);
+}
+
+.carousel-dot:focus {
+  outline: 2px solid rgba(59, 130, 246, 0.5);
+  outline-offset: 2px;
+}
+</style>

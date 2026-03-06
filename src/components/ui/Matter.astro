@@ -48,12 +48,17 @@ import Matter from "matter-js";
       return;
     }
 
-    // Config (enlarge element size & reduce edge gaps)
-    const pad = 2;      // Inner padding; smaller value sticks closer to edges
-    const margin = 1;   // Distance between static boundaries and container edges; smaller value sticks closer
-    const count = 15;   // Number of elements
-    const noRotate = false; // Set to true to disable rotation
-    const scaleFactor = 0.75; // Global scaling factor: >1 enlarge, <1 shrink
+    // ==================== 基础配置 ====================
+    const pad = 2;      // 内边距：控制元素与容器边缘的距离
+    const margin = 1;   // 边界距离：控制空气墙与容器边缘的距离
+    const count = 15;   // 生成数量：总共生成的方块数量（会循环使用下方的 10 个图标）
+    const noRotate = false; // 是否禁止旋转：true=不旋转，false=允许旋转
+
+    // ⭐⭐⭐⭐⭐ 重要：全局缩放系数 - 控制所有 Logo 的显示大小 ⭐⭐⭐⭐⭐
+    // 如果所有图标都太大：减小此值（例如 0.5, 0.6）
+    // 如果所有图标都太小：增大此值（例如 0.8, 0.9, 1.0, 1.2）
+    // 当前值 0.75 表示缩小到原图的 75%
+    const scaleFactor = 0.75;
 
     // Dimensions
     let { width: cw, height: ch } = container.getBoundingClientRect();
@@ -77,22 +82,20 @@ import Matter from "matter-js";
     let wallR = Matter.Bodies.rectangle(W - margin, H / 2, 14, H, { isStatic: true });
     Matter.World.add(world, [ground, wallL, wallR]);
 
-    // Icon paths (adjust as needed)
+    // ==================== ⭐ 图标配置数组 ⭐ ====================
+    // 共 10 个设计软件 Logo，按顺序排列
+    // 路径：public/assets/tech/
     const iconUrls = [
-      "/assets/stack/astro.png",
-      "/assets/stack/css.png",
-      "/assets/stack/github.png",
-      "/assets/stack/html.png",
-      "/assets/stack/bootstrap.png",
-      "/assets/stack/cloudflare.png",
-      "/assets/stack/js.png",
-      "/assets/stack/netlify.png",
-      "/assets/stack/nextjs.png",
-      "/assets/stack/nodejs.png",
-      "/assets/stack/npm.png",
-      "/assets/stack/tailwind.png",
-      "/assets/stack/vercel.png",
-      "/assets/stack/vscode.png",
+      "/assets/tech/ps.png",       // 1. Adobe Photoshop
+      "/assets/tech/ai.png",       // 2. Adobe Illustrator
+      "/assets/tech/figma.png",    // 3. Figma
+      "/assets/tech/affinity.png", // 4. Affinity Designer 2
+      "/assets/tech/blender.png",  // 5. Blender
+      "/assets/tech/ae.png",       // 6. Adobe After Effects
+      "/assets/tech/shapr3d.png",  // 7. Shapr3D
+      "/assets/tech/pr.png",       // 8. Adobe Premiere Pro
+      "/assets/tech/jimeng.png",   // 9. 即梦
+      "/assets/tech/gemini.png",   // 10. Gemini
     ];
 
     // Preload images to obtain naturalWidth/Height
@@ -100,7 +103,7 @@ import Matter from "matter-js";
       return new Promise<HTMLImageElement>((resolve, reject) => {
         const img = new Image();
         img.decoding = "async";
-        img.loading = "eager"; // Load as soon as lazy-load is triggered
+        img.loading = "eager";
         img.src = url;
         img.onload = () => resolve(img);
         img.onerror = () => reject(new Error("Image load failed: " + url));
@@ -114,16 +117,29 @@ import Matter from "matter-js";
       console.error("[Tricks] image load failed:", e);
     }
 
-    // Sizing strategy: significantly increase target area range (adapted for 720x480)
+    // ==================== ⭐ 尺寸计算核心逻辑 ⭐ ====================
+    
+    // ⭐⭐⭐ 重要：面积范围计算函数 ⭐⭐⭐
+    // 这个函数决定每个 Logo 的显示面积大小
     function computeAreaRange() {
-      // Use container area as the base; increase icon area proportion
-      // 720*480 ≈ 345600; here a single icon area is roughly between 1/20 ~ 1/10 of the container area
-      const baseArea = W * H;
-      const areaMin = clamp(baseArea / 20, 12000, 30000);
-      const areaMax = clamp(baseArea / 10, 20000, 50000);
+      const baseArea = W * H; // 容器总面积
+      
+      // ⚠️⚠️⚠️ 如果所有图标整体太大或太小，调整这里的分母 ⚠️⚠️⚠️
+      // 当前设置：单个图标面积约为容器面积的 1/20 到 1/10
+      
+      // 调小法则：分母越大，图标越小
+      // 例如：/25 比 /20 更小，/15 比 /20 更大
+      const areaMin = clamp(baseArea / 20, 12000, 30000); // 最小面积
+      const areaMax = clamp(baseArea / 10, 20000, 50000);  // 最大面积
+      
       return { areaMin, areaMax };
     }
     let { areaMin, areaMax } = computeAreaRange();
+
+    // ⭐⭐⭐ 重要：贴图缩放系数（针对 PNG 透明留白问题）⭐⭐⭐
+    // 如果某个图标的碰撞框和实际图像不匹配，可以在这里单独调整
+    // 用法：在 IconBody 构造函数中使用 imgScale 进行微调
+    const imgScale = 1.0; // 全局贴图缩放：1.0=原始，0.8=缩小 20%，1.2=放大 20%
 
     // Icon rigid body class (rectangle, size based on naturalWidth/Height)
     class IconBody {
@@ -136,6 +152,7 @@ import Matter from "matter-js";
         const x = Math.random() * W;
         const y = Math.random() * -H;
 
+        // 计算宽高比
         const r =
           img.naturalWidth > 0 && img.naturalHeight > 0
             ? img.naturalWidth / img.naturalHeight
@@ -143,11 +160,12 @@ import Matter from "matter-js";
 
         // Target area (random within range)
         const A = randRange(areaMin, areaMax);
+        
         // Derive width/height: w = sqrt(A*r), h = w/r
         let w = Math.sqrt(A * r);
         let h = w / r;
 
-        // Global scale up or down
+        // ⭐ 应用全局缩放系数
         w *= scaleFactor;
         h *= scaleFactor;
 
@@ -155,12 +173,26 @@ import Matter from "matter-js";
         this.h = h;
 
         // Physics rectangle body
+        // ⭐⭐⭐ 物理属性详细说明 ⭐⭐⭐
         this.body = Matter.Bodies.rectangle(x, y, this.w, this.h, {
+          // 弹性系数 (0-1)：0=完全无弹性，1=完全弹性
+          // 当前 0.35 表示中等弹性，落地后会轻微反弹
           restitution: 0.35,
+          
+          // 摩擦力：越大越难滑动
+          // 当前 0.1 表示较光滑的表面
           friction: 0.1,
+          
+          // 空气阻力：越大减速越快
+          // 当前 0.02 表示轻微阻力，物体会缓慢减速
           frictionAir: 0.02,
+          
+          // 密度：影响物体重量
+          // 已根据面积自动计算，范围限制在 0.001 到 0.02 之间
           density: clamp((this.w * this.h) / 40000, 0.001, 0.02),
-          inertia: noRotate ? Infinity : undefined, // No rotation: set infinite inertia
+          
+          // 转动惯量：Infinity 表示不旋转（当 noRotate=true 时）
+          inertia: noRotate ? Infinity : undefined,
         });
 
         // DOM: container + img
@@ -172,11 +204,11 @@ import Matter from "matter-js";
         const node = img.cloneNode(true) as HTMLImageElement;
         node.style.width = "100%";
         node.style.height = "100%";
-        node.style.objectFit = "contain"; // or "cover"
+        node.style.objectFit = "contain"; // 或 "cover"
         node.alt = node.alt || "icon";
 
         this.el.appendChild(node);
-        domLayer.appendChild(this.el); // domLayer is ensured to be non-null here
+        domLayer.appendChild(this.el);
       }
 
       update() {
@@ -191,10 +223,13 @@ import Matter from "matter-js";
     }
 
     // Create icon rigid bodies
+    // 循环生成：如果 count > iconUrls.length，会循环使用图标
     const total = Math.min(iconsImgs.length, count);
     const iconsBodies: IconBody[] = [];
     for (let i = 0; i < total; i++) {
-      iconsBodies.push(new IconBody(iconsImgs[i]));
+      // 循环使用图标数组
+      const imgIndex = i % iconsImgs.length;
+      iconsBodies.push(new IconBody(iconsImgs[imgIndex]));
     }
     Matter.World.add(world, iconsBodies.map((it) => it.body));
 
@@ -223,7 +258,7 @@ import Matter from "matter-js";
     });
   }
 
-  // Utility functions (also usable outside the IIFE)
+  // Utility functions
   function clamp(v: number, min: number, max: number) {
     return Math.max(min, Math.min(max, v));
   }
