@@ -1,0 +1,52 @@
+---
+/**
+ * Picture 组件 - 使用 WebP 格式图片
+ * 
+ * @param {string} src - 图片路径（会自动转换为 .webp）
+ * @param {string} alt - 替代文本
+ * @param {string} [class] - CSS 类名
+ * @param {string} [loading="lazy"] - 加载策略
+ * @param {string} [width] - 宽度
+ * @param {string} [height] - 高度
+ */
+
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  width?: string;
+  height?: string;
+}
+
+const {
+  src,
+  alt,
+  class: className = '',
+  loading = 'lazy',
+  width,
+  height
+} = Astro.props;
+
+// 生成 WebP 路径（现在只有 .webp 文件存在）
+const getWebpPath = (path: string) => {
+  // 如果已经是 webp，直接返回
+  if (path.endsWith('.webp')) {
+    return path;
+  }
+  // 否则替换扩展名为 .webp
+  return path.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+};
+
+const webpSrc = getWebpPath(src);
+const baseStyles = 'w-full h-auto object-cover';
+---
+
+<img
+  src={webpSrc}
+  alt={alt}
+  class={`${baseStyles} ${className}`}
+  loading={loading}
+  {width}
+  {height}
+/>

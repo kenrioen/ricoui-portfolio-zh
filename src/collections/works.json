@@ -4,20 +4,16 @@
 		"name": "林间鸟",
 		"description": "一个充满自然生态与现代设计的完美结合",
 		"tags": ["自然", "生态", "设计"],
-		"image": "/assets/works/林间鸟-封面.jpg",
-		"video": "/assets/works/林间鸟-预览.mp4",
-		"heroImage": "/assets/works/林间鸟-头图.jpg",
+		"image": "/assets/works/林间鸟封面.webp",
+		"video": "",
+		"heroImage": "/assets/works/林间鸟头图.webp",
 		"content": {
 			"summary": "《林间鸟》是一个探索自然生态与现代设计完美结合的项目。通过精心设计的界面和动画效果，展现森林与现代艺术的完美融合。",
 			"details": [
 				"通过精心设计的用户界面，展现自然的和谐之美。每一个元素都经过深思熟虑，从色彩搭配到交互效果，都体现了对自然与现代设计的完美理解。",
 				"该项目旨在探索如何将自然美学与现代技术完美结合，创造出独特的用户体验。"
 			],
-			"images": [
-				"/assets/works/林间鸟-效果图1.jpg",
-				"/assets/works/林间鸟-效果图2.jpg",
-				"/assets/works/林间鸟-效果图3.jpg"
-			]
+			"images": []
 		},
 		"isShow": true
 	},
@@ -26,15 +22,12 @@
 		"name": "观山杯",
 		"description": "交互式音乐专辑",
 		"tags": ["音乐", "设计", "Godot"],
-		"image": "/assets/works/观山杯-封面.png",
-		"video": "/assets/works/观山杯-预览.mp4",
-		"heroImage": "/assets/works/观山杯-头图.png",
+		"image": "/assets/works/观山杯封面.webp",
+		"video": "",
+		"heroImage": "/assets/works/观山杯头图.webp",
 		"content": {
-			"summary": "原创交互式音乐专辑，利用 Godot 引擎定制交互式桌面播放器，打破传统流媒体播放形式。",
-			"details": [
-				"这是一次将听觉与视觉代码化融合的尝试，赋予音乐更具实体的交互温度。",
-				"利用 Godot 引擎为专辑量身定制网页版交互式音乐播放器。"
-			],
+			"summary": "观山杯是一个交互式音乐专辑项目，融合了音乐、设计和游戏元素。",
+			"details": [],
 			"images": []
 		},
 		"isShow": true
@@ -45,9 +38,9 @@
 		"description": "骑士与狗主题扑克牌设计 / 视觉系统构建",
 		"category": ["视觉传达", "商业插画", "展览文创"],
 		"tags": ["设计", "文化", "文创"],
-		"image": "/assets/works/knights-poker.png",
+		"image": "/assets/works/knights-poker.webp",
 		"video": "/assets/works/knights-poker.mp4",
-		"heroImage": "/assets/works/knights-poker.png",
+		"heroImage": "/assets/works/knights-poker.webp",
 		"content": {
 			"summary": "为《Steel and Glory》展览量身定制的主题扑克牌。将传统的花色与中世纪骑士、剑、盾及猎犬等元素重构，呈现出兼具古典秩序与现代图形张力的视觉系统。",
 			"details": [
@@ -57,18 +50,46 @@
 		}
 	},
 	{
+		"slug": "灰喜鹊",
+		"name": "灰喜鹊",
+		"description": "品牌视觉设计",
+		"tags": ["品牌", "视觉"],
+		"image": "/assets/works/灰喜鹊.webp",
+		"video": "",
+		"heroImage": "/assets/works/灰喜鹊.webp",
+		"content": {
+			"summary": "灰喜鹊品牌视觉设计项目。",
+			"details": [],
+			"images": []
+		}
+	},
+	{
 		"slug": "luon-models",
 		"name": "Luon Models",
 		"description": "公司官网",
-		"tags": ["企业","官网"],
-		"image": "/assets/works/luonmodels.jpg",
+		"tags": ["企业", "官网", "品牌设计"],
+		"image": "/assets/works/luonmodels.webp",
 		"video": "/assets/works/luonmodels.mp4",
-		"heroImage": "/assets/works/luonmodels.jpg",
+		"url": "https://luonmodels.netlify.app/",
+		"heroImage": "/assets/works/luonmodels.webp",
 		"content": {
-			"summary": "为 Luon Models 设计的企业官网，展现专业品牌形象。",
-			"details": [
-				"精心设计的企业官网，展现专业的品牌形象和专业的产品展示。"
-			],
+			"summary": "公司官网设计项目。",
+			"details": [],
+			"images": []
+		}
+	},
+	{
+		"slug": "ricoog",
+		"name": "RicoOG",
+		"description": "OG 灵感库",
+		"tags": ["Open Graph", "设计", "资源库"],
+		"image": "/assets/works/ricoog.webp",
+		"video": "/assets/works/ricoog.mp4",
+		"url": "https://ricoog.com/",
+		"heroImage": "/assets/works/ricoog.webp",
+		"content": {
+			"summary": "OG 灵感库项目。",
+			"details": [],
 			"images": []
 		}
 	},
@@ -76,31 +97,14 @@
 		"slug": "ricoui",
 		"name": "Ricoui",
 		"description": "设计师作品集",
-		"tags": ["设计师","作品集","开源"],
-		"image": "/assets/works/ricoui.jpg",
+		"tags": ["设计师", "作品集", "开源"],
+		"image": "/assets/works/ricoui.webp",
 		"video": "/assets/works/ricoui.mp4",
-		"heroImage": "/assets/works/ricoui.jpg",
+		"url": "/work/ricoblog2024",
+		"heroImage": "/assets/works/ricoui.webp",
 		"content": {
-			"summary": "Ricoui 是一个精美的设计师作品集模板，开源免费使用。",
-			"details": [
-				"基于 Astro 构建的现代化作品集模板，支持深色模式，具有精美的动画效果。"
-			],
-			"images": []
-		}
-	},
-	{
-		"slug": "3d-valentines",
-		"name": "3D Valentines Assets",
-		"description": "Blender 设计资源与素材",
-		"tags": ["3D","资源","素材"],
-		"image": "/assets/works/3d-valentines.jpg",
-		"video": "/assets/works/3d-valentines.mp4",
-		"heroImage": "/assets/works/3d-valentines.jpg",
-		"content": {
-			"summary": "精美的 3D 情人节设计资源与素材，专为设计师准备。",
-			"details": [
-				"提供精美的 3D 情人节设计资源，为项目增添独特魅力。"
-			],
+			"summary": "设计师作品集项目。",
+			"details": [],
 			"images": []
 		}
 	},
@@ -108,14 +112,13 @@
 		"slug": "uiuxdeck",
 		"name": "UIUXDECK",
 		"description": "设计资源与工具",
-		"tags": ["设计","资源","工具"],
-		"image": "/assets/works/uiuxdeck.jpg",
-		"heroImage": "/assets/works/uiuxdeck.jpg",
+		"tags": ["设计", "资源", "工具"],
+		"image": "/assets/works/uiuxdeck.webp",
+		"url": "http://uiuxdeck.com/",
+		"heroImage": "/assets/works/uiuxdeck.webp",
 		"content": {
-			"summary": "UIUXDECK 是专业的设计资源与工具平台。",
-			"details": [
-				"汇集了众多优秀的设计资源和工具，提升设计效率。"
-			],
+			"summary": "设计资源与工具项目。",
+			"details": [],
 			"images": []
 		}
 	},
@@ -123,14 +126,43 @@
 		"slug": "inspoweb",
 		"name": "Inspoweb",
 		"description": "网页灵感库",
-		"tags": ["灵感","网页合集"],
-		"image": "/assets/works/inspoweb.jpg",
-		"heroImage": "/assets/works/inspoweb.jpg",
+		"tags": ["灵感", "网页合集"],
+		"image": "/assets/works/inspoweb.webp",
+		"url": "https://inspoweb.com/",
+		"heroImage": "/assets/works/inspoweb.webp",
 		"content": {
-			"summary": "Inspoweb 是专业的网页灵感库，汇集了众多优秀的网页设计案例。",
-			"details": [
-				"精选了来自全球各地的优秀网页设计案例，提供丰富的设计灵感。"
-			],
+			"summary": "网页灵感库项目。",
+			"details": [],
+			"images": []
+		}
+	},
+	{
+		"slug": "gradients-hub",
+		"name": "GradientsHub",
+		"description": "渐变资源与工具",
+		"tags": ["渐变", "资源", "工具"],
+		"image": "/assets/works/gradientshub.webp",
+		"video": "/assets/works/gradientshub.mp4",
+		"url": "https://gradientshub.com",
+		"heroImage": "/assets/works/gradientshub.webp",
+		"content": {
+			"summary": "渐变资源与工具项目。",
+			"details": [],
+			"images": []
+		}
+	},
+	{
+		"slug": "3d-valentines",
+		"name": "3D Valentines Assets",
+		"description": "Blender 设计资源与素材",
+		"tags": ["3D", "资源", "素材"],
+		"image": "/assets/works/3d-valentines.webp",
+		"video": "/assets/works/3d-valentines.mp4",
+		"url": "/work/3dvalentine",
+		"heroImage": "/assets/works/3d-valentines.webp",
+		"content": {
+			"summary": "Blender 设计资源与素材项目。",
+			"details": [],
 			"images": []
 		}
 	}

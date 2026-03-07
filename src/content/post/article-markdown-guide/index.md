@@ -2,7 +2,7 @@
 title: Markdown content in Astro
 description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
 publishDate: 2025-01-01 00:00:00
-img: "/assets/blog/cover-markdown-guide.jpg"
+img: "/assets/blog/cover-markdown-guide.webp"
 # img_alt: Markdown
 tags:
   - Markdown

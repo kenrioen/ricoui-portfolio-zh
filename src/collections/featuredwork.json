@@ -3,7 +3,7 @@
 		"name": "RicoOG",
 		"description": "OG 灵感库",
 		"tags": ["Open Graph", "设计", "资源库"],
-		"image": "/assets/works/ricoog.jpg",
+		"image": "/assets/works/ricoog.webp",
 		"video": "/assets/works/ricoog.mp4",
 		"url": "https://ricoog.com/",
 		"isShow": true
@@ -12,7 +12,7 @@
 		"name": "GradientsHub",
 		"description": "渐变资源与工具",
 		"tags": ["渐变","资源","工具"],
-		"image": "/assets/works/gradientshub.jpg",
+		"image": "/assets/works/gradientshub.webp",
 		"video": "/assets/works/gradientshub.mp4",
 		"url": "https://gradientshub.com"
 	},
@@ -20,7 +20,7 @@
 		"name": "Luon Models",
 		"description": "公司官网",
 		"tags": ["企业","官网","品牌设计"],
-		"image": "/assets/works/luonmodels.jpg",
+		"image": "/assets/works/luonmodels.webp",
 		"video": "/assets/works/luonmodels.mp4",
 		"url": "https://luonmodels.netlify.app/"
 	},
@@ -28,7 +28,7 @@
 		"name": "Ricoui",
 		"description": "设计师作品集",
 		"tags": ["设计师","作品集","开源"],
-		"image": "/assets/works/ricoui.jpg",
+		"image": "/assets/works/ricoui.webp",
 		"video": "/assets/works/ricoui.mp4",
 		"url": "/work/ricoblog2024"
 
@@ -37,7 +37,7 @@
 		"name": "3D Valentines Assets",
 		"description": "Blender 设计资源与素材",
 		"tags": ["3D","资源","素材"],
-		"image": "/assets/works/3d-valentines.jpg",
+		"image": "/assets/works/3d-valentines.webp",
 		"video": "/assets/works/3d-valentines.mp4",
 		"url": "/work/3dvalentine"
 	},
@@ -45,14 +45,14 @@
 		"name": "UIUXDECK",
 		"description": "设计资源与工具",
 		"tags": ["设计","资源","工具"],
-		"image": "/assets/works/uiuxdeck.jpg",
+		"image": "/assets/works/uiuxdeck.webp",
 		"url": "http://uiuxdeck.com/"
 	},
 	{
 		"name": "Inspoweb",
 		"description": "网页灵感库",
 		"tags": ["灵感","网页合集"],
-		"image": "/assets/works/inspoweb.jpg",
+		"image": "/assets/works/inspoweb.webp",
 		"url": "https://inspoweb.com/"
 	}
 ]

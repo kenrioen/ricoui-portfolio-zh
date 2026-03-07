@@ -3,7 +3,7 @@
         "id": 1,
 		"name": "Github",
         "username": "ricocc",
-		"image": "/assets/social/social-github.jpg",
+		"image": "/assets/social/social-github.webp",
 		"url": "https://github.com/ricocc/"
 	},
 
@@ -11,7 +11,7 @@
         "id": 2,
 		"name": "Xiaohongshu",
         "username": "ricouii",
-		"image": "/assets/social/social-xiaohongshu.jpg",
+		"image": "/assets/social/social-xiaohongshu.webp",
 		"url": "https://www.xiaohongshu.com/user/profile/5f2b6903000000000101f51f"
 	},
 
@@ -19,7 +19,7 @@
         "id": 3,
 		"name": "Twitter",
         "username": "ricouii",
-		"image": "/assets/social/social-twitter.jpg",
+		"image": "/assets/social/social-twitter.webp",
 		"url": "https://x.com/ricouii"
 	},
 
@@ -27,7 +27,7 @@
         "id": 4,
 		"name": "Gumroad",
         "username": "ricoui",
-		"image": "/assets/social/social-gumroad.jpg",
+		"image": "/assets/social/social-gumroad.webp",
 		"url": "https://ricoui.gumroad.com/"
 	},
 
@@ -35,7 +35,7 @@
         "id": 5,
 		"name": "Behance",
         "username": "ricoui",
-		"image": "/assets/social/social-behance.jpg",
+		"image": "/assets/social/social-behance.webp",
 		"url": "https://www.behance.net/ricoui"
 	},
 
@@ -43,7 +43,7 @@
         "id": 6,
 		"name": "figma",
         "username": "ricocc",
-		"image": "/assets/social/social-figma.jpg",
+		"image": "/assets/social/social-figma.webp",
 		"url": "https://www.figma.com/@ricocc",
         "isShow": false
 	},
@@ -52,7 +52,7 @@
         "id": 7,
 		"name": "Dribbble",
         "username": "ricoui",
-		"image": "/assets/social/social-dribbble.jpg",
+		"image": "/assets/social/social-dribbble.webp",
 		"url": "https://dribbble.com/ricoui"
 	},
 
@@ -60,7 +60,7 @@
         "id": 8,
 		"name": "Email",
         "username": "ricocc",
-		"image": "/assets/social/social-email.jpg",
+		"image": "/assets/social/social-email.webp",
 		"url": "mailto:ricocc@qq.com"
 	}
 

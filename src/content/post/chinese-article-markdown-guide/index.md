@@ -6,7 +6,7 @@ description: 《学而》是《论语》第一篇的篇名。《论语》中各�
 tags:
   - 中文排版
 
-img: "/assets/blog/cover-chinese-article-markdown-guide.jpg"
+img: "/assets/blog/cover-chinese-article-markdown-guide.webp"
 img_alt: "中文排版"
 ---
 

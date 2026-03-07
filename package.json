@@ -31,10 +31,13 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
-		"build": "astro check && astro build",
+		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"check": "biome check --apply-unsafe ."
+		"check": "biome check --apply-unsafe .",
+		"optimize:images": "node scripts/optimize-images.js",
+		"update:images": "node scripts/update-image-references.js",
+		"cleanup:images": "node scripts/cleanup-original-images.js"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.5",

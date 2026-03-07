@@ -12,6 +12,16 @@ const {
   title = "Home",
   link = ""
 } = Astro.props;
+
+// Generate WebP path (now only .webp files exist)
+const getWebpPath = (path: string) => {
+  if (path.endsWith('.webp')) {
+    return path;
+  }
+  return path.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+};
+
+const webpSrc = getWebpPath(imageUrl);
 ---
 
 <div class="relative z-20 w-full web-case" data-href={link}>
@@ -27,7 +37,7 @@ const {
         <div class="relative z-20 w-full">
             <div class="relative top-0 left-0 w-full aspect-[6/7] overflow-hidden rounded-xl case-go">
                 <img
-                src={imageUrl}
+                src={webpSrc}
                 loading="eager"
                 decoding="auto"
                 class="absolute top-0 left-0 right-0 z-30 w-full mx-auto object-cover"

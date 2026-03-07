@@ -29,4 +29,16 @@ export default defineConfig({
   },
 
   integrations: [mdx(), sitemap()],
+  
+  // 图片优化配置
+  image: {
+    // 启用自动 WebP 转换
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+      config: {
+        format: 'webp',
+        quality: 80
+      }
+    }
+  }
 });

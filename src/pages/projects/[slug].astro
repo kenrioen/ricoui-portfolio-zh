@@ -3,6 +3,7 @@ import { ArrowLeft } from "@lucide/astro";
 import PostLayout from "@/layouts/PostLayout.astro";
 import PageHeader from "@/components/elements/PageHeader.astro";
 import SeparatorLine from "@/components/elements/SeparatorLine.astro";
+import Picture from "@/components/ui/Picture.astro";
 import works from "@/collections/works.json";
 
 export async function getStaticPaths() {
@@ -219,7 +220,7 @@ if (!work) {
 									<!-- 左侧：封面 -->
 									<div class="lg:col-span-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
 										<img
-											src="/assets/projects/botanist-lag/cover.png"
+											src="/assets/projects/botanist-lag/cover.webp"
 											alt="观山杯专辑封面"
 											class="w-full aspect-square object-cover rounded-lg shadow-lg shadow-green-900/20"
 											loading="lazy"
@@ -265,7 +266,7 @@ if (!work) {
 								<!-- 顶部：观山杯效果图 -->
 								<div class="max-w-5xl mx-auto mb-8" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
 									<img
-										src="/assets/projects/botanist-lag/mockup.png"
+										src="/assets/projects/botanist-lag/mockup.webp"
 										alt="观山杯效果图 - 主视觉"
 										class="w-full h-auto rounded-lg shadow-2xl shadow-green-900/10"
 										loading="lazy"
@@ -275,9 +276,9 @@ if (!work) {
 								<!-- 三列：歌词本内页 -->
 								<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
 									{[
-										{ src: "/assets/projects/botanist-lag/lyric-1.png", alt: "歌词本内页 1" },
-										{ src: "/assets/projects/botanist-lag/lyric-2.png", alt: "歌词本内页 2" },
-										{ src: "/assets/projects/botanist-lag/lyric-3.png", alt: "歌词本内页 3" }
+										{ src: "/assets/projects/botanist-lag/lyric-1.webp", alt: "歌词本内页 1" },
+										{ src: "/assets/projects/botanist-lag/lyric-2.webp", alt: "歌词本内页 2" },
+										{ src: "/assets/projects/botanist-lag/lyric-3.webp", alt: "歌词本内页 3" }
 									].map((item, index) => (
 										<div class="group relative overflow-hidden rounded-lg transition-all duration-300 hover:-translate-y-2">
 											<div class="absolute inset-0 bg-gradient-to-t from-green-500/0 to-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -358,11 +359,10 @@ if (!work) {
 												transform: 'rotateY(180deg)'
 											}}
 										>
-											<img
-												src={`/assets/projects/knights-poker/card-front-${index + 1}.png`}
+											<Picture
+												src={`/assets/projects/knights-poker/card-front-${index + 1}.webp`}
 												alt={`扑克牌正面 ${index + 1}`}
 												class="w-full h-full object-cover rounded-xl"
-												loading="lazy"
 											/>
 										</div>
 										
@@ -374,11 +374,10 @@ if (!work) {
 												transform: 'rotateY(0deg)'
 											}}
 										>
-											<img
-												src="/assets/projects/knights-poker/card-back.png"
+											<Picture
+												src="/assets/projects/knights-poker/card-back.webp"
 												alt="扑克牌背面"
 												class="w-full h-full object-cover rounded-xl"
-												loading="lazy"
 											/>
 										</div>
 									</div>
@@ -406,41 +405,37 @@ if (!work) {
 								<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 mb-24">
 									<!-- Mockup 1 -->
 									<div class="overflow-hidden rounded-xl shadow-lg shadow-black/5 transition-transform hover:-translate-y-1 hover:shadow-2xl">
-										<img
-											src="/assets/projects/knights-poker/mockup-1.png"
+										<Picture
+											src="/assets/projects/knights-poker/mockup-1.webp"
 											alt="Knights Poker 实体效果图 1"
-											class="w-full h-auto object-cover aspect-[4/3]"
-											loading="lazy"
+											class="aspect-[4/3]"
 										/>
 									</div>
 									
 									<!-- Mockup 2 -->
 									<div class="overflow-hidden rounded-xl shadow-lg shadow-black/5 transition-transform hover:-translate-y-1 hover:shadow-2xl">
-										<img
-											src="/assets/projects/knights-poker/mockup-2.png"
+										<Picture
+											src="/assets/projects/knights-poker/mockup-2.webp"
 											alt="Knights Poker 实体效果图 2"
-											class="w-full h-auto object-cover aspect-[4/3]"
-											loading="lazy"
+											class="aspect-[4/3]"
 										/>
 									</div>
 									
 									<!-- Mockup 3 -->
 									<div class="overflow-hidden rounded-xl shadow-lg shadow-black/5 transition-transform hover:-translate-y-1 hover:shadow-2xl">
-										<img
-											src="/assets/projects/knights-poker/mockup-3.png"
+										<Picture
+											src="/assets/projects/knights-poker/mockup-3.webp"
 											alt="Knights Poker 实体效果图 3"
-											class="w-full h-auto object-cover aspect-[4/3]"
-											loading="lazy"
+											class="aspect-[4/3]"
 										/>
 									</div>
 									
 									<!-- Mockup 4 -->
 									<div class="overflow-hidden rounded-xl shadow-lg shadow-black/5 transition-transform hover:-translate-y-1 hover:shadow-2xl">
-										<img
-											src="/assets/projects/knights-poker/mockup-4.png"
+										<Picture
+											src="/assets/projects/knights-poker/mockup-4.webp"
 											alt="Knights Poker 实体效果图 4"
-											class="w-full h-auto object-cover aspect-[4/3]"
-											loading="lazy"
+											class="aspect-[4/3]"
 										/>
 									</div>
 								</div>
@@ -448,10 +443,10 @@ if (!work) {
 
 							<!-- 全套牌面展示 -->
 							<div class="max-w-6xl mx-auto" data-aos="fade-up" data-aos-duration="800">
-								<img
-									src="/assets/projects/knights-poker/full-deck.png"
+								<Picture
+									src="/assets/projects/knights-poker/full-deck.webp"
 									alt="Knights Poker 全套牌面展示"
-									class="w-full h-auto block rounded-lg shadow-xl"
+									class="rounded-lg shadow-xl"
 									loading="lazy"
 								/>
 							</div>
@@ -475,7 +470,7 @@ if (!work) {
 								data-aos-delay="100"
 							>
 								<img
-									src="/assets/projects/bird-paper.png"
+									src="/assets/projects/bird-paper.webp"
 									alt="林间鸟 - 纸质贴纸效果"
 									class="tilt-image w-full h-auto object-contain cursor-pointer"
 									loading="lazy"
@@ -489,7 +484,7 @@ if (!work) {
 								data-aos-delay="200"
 							>
 								<img
-									src="/assets/projects/bird-resin.png"
+									src="/assets/projects/bird-resin.webp"
 									alt="林间鸟 - 滴胶贴纸效果"
 									class="tilt-image w-full h-auto object-contain cursor-pointer"
 									loading="lazy"
@@ -527,7 +522,7 @@ if (!work) {
 								>
 									<div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 									<img
-										src={`/assets/projects/live-${num}.jpg`}
+										src={`/assets/projects/live-${num}.webp`}
 										alt={`林间鸟 - 实拍展示 ${num}`}
 										class="w-full h-auto object-cover transform transition-all duration-500 group-hover:scale-105"
 										loading="lazy"
@@ -560,10 +555,10 @@ if (!work) {
 								<div class="group w-full h-full [perspective:1000px]">
 									<div class="relative w-full h-full duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl shadow-gray-300/50 rounded-lg">
 										<div class="absolute inset-0 [backface-visibility:hidden]">
-											<img src="/assets/projects/postcards/card-1-front.png" alt="林间晨曦 - 正面" class="w-full h-full object-contain" loading="lazy" />
+											<img src="/assets/projects/postcards/card-1-front.webp" alt="林间晨曦 - 正面" class="w-full h-full object-contain" loading="lazy" />
 										</div>
 										<div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-											<img src="/assets/projects/postcards/card-1-back.png" alt="林间晨曦 - 背面" class="w-full h-full object-contain" loading="lazy" />
+											<img src="/assets/projects/postcards/card-1-back.webp" alt="林间晨曦 - 背面" class="w-full h-full object-contain" loading="lazy" />
 										</div>
 									</div>
 								</div>
@@ -574,10 +569,10 @@ if (!work) {
 								<div class="group w-full h-full [perspective:1000px]">
 									<div class="relative w-full h-full duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl shadow-gray-300/50 rounded-lg">
 										<div class="absolute inset-0 [backface-visibility:hidden]">
-											<img src="/assets/projects/postcards/card-2-front.png" alt="树影婆娑 - 正面" class="w-full h-full object-contain" loading="lazy" />
+											<img src="/assets/projects/postcards/card-2-front.webp" alt="树影婆娑 - 正面" class="w-full h-full object-contain" loading="lazy" />
 										</div>
 										<div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-											<img src="/assets/projects/postcards/card-2-back.png" alt="树影婆娑 - 背面" class="w-full h-full object-contain" loading="lazy" />
+											<img src="/assets/projects/postcards/card-2-back.webp" alt="树影婆娑 - 背面" class="w-full h-full object-contain" loading="lazy" />
 										</div>
 									</div>
 								</div>
@@ -588,10 +583,10 @@ if (!work) {
 								<div class="group w-full h-full [perspective:1000px]">
 									<div class="relative w-full h-full duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl shadow-gray-300/50 rounded-lg">
 										<div class="absolute inset-0 [backface-visibility:hidden]">
-											<img src="/assets/projects/postcards/card-3-front.png" alt="鸟语花香 - 正面" class="w-full h-full object-contain" loading="lazy" />
+											<img src="/assets/projects/postcards/card-3-front.webp" alt="鸟语花香 - 正面" class="w-full h-full object-contain" loading="lazy" />
 										</div>
 										<div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-											<img src="/assets/projects/postcards/card-3-back.png" alt="鸟语花香 - 背面" class="w-full h-full object-contain" loading="lazy" />
+											<img src="/assets/projects/postcards/card-3-back.webp" alt="鸟语花香 - 背面" class="w-full h-full object-contain" loading="lazy" />
 										</div>
 									</div>
 								</div>
@@ -602,10 +597,10 @@ if (!work) {
 								<div class="group w-full h-full [perspective:1000px]">
 									<div class="relative w-full h-full duration-700 ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl shadow-gray-300/50 rounded-lg">
 										<div class="absolute inset-0 [backface-visibility:hidden]">
-											<img src="/assets/projects/postcards/card-4-front.png" alt="生态和谐 - 正面" class="w-full h-full object-contain" loading="lazy" />
+											<img src="/assets/projects/postcards/card-4-front.webp" alt="生态和谐 - 正面" class="w-full h-full object-contain" loading="lazy" />
 										</div>
 										<div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-											<img src="/assets/projects/postcards/card-4-back.png" alt="生态和谐 - 背面" class="w-full h-full object-contain" loading="lazy" />
+											<img src="/assets/projects/postcards/card-4-back.webp" alt="生态和谐 - 背面" class="w-full h-full object-contain" loading="lazy" />
 										</div>
 									</div>
 								</div>
@@ -629,7 +624,7 @@ if (!work) {
 							data-aos-duration="1000"
 						>
 							<img
-								src="/assets/projects/long-promo.jpg"
+								src="/assets/projects/long-promo.webp"
 								alt="林间鸟 - 宣传海报"
 								class="w-full h-auto block"
 								loading="lazy"
