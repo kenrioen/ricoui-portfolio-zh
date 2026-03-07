@@ -94,21 +94,6 @@
 		}
 	},
 	{
-		"slug": "ricoui",
-		"name": "Ricoui",
-		"description": "设计师作品集",
-		"tags": ["设计师", "作品集", "开源"],
-		"image": "/assets/works/ricoui.webp",
-		"video": "/assets/works/ricoui.mp4",
-		"url": "/work/ricoblog2024",
-		"heroImage": "/assets/works/ricoui.webp",
-		"content": {
-			"summary": "设计师作品集项目。",
-			"details": [],
-			"images": []
-		}
-	},
-	{
 		"slug": "uiuxdeck",
 		"name": "UIUXDECK",
 		"description": "设计资源与工具",
@@ -147,21 +132,6 @@
 		"heroImage": "/assets/works/gradientshub.webp",
 		"content": {
 			"summary": "渐变资源与工具项目。",
-			"details": [],
-			"images": []
-		}
-	},
-	{
-		"slug": "3d-valentines",
-		"name": "3D Valentines Assets",
-		"description": "Blender 设计资源与素材",
-		"tags": ["3D", "资源", "素材"],
-		"image": "/assets/works/3d-valentines.webp",
-		"video": "/assets/works/3d-valentines.mp4",
-		"url": "/work/3dvalentine",
-		"heroImage": "/assets/works/3d-valentines.webp",
-		"content": {
-			"summary": "Blender 设计资源与素材项目。",
 			"details": [],
 			"images": []
 		}
