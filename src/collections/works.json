@@ -50,88 +50,29 @@
 		}
 	},
 	{
-		"slug": "灰喜鹊",
-		"name": "灰喜鹊",
-		"description": "品牌视觉设计",
-		"tags": ["品牌", "视觉"],
-		"image": "/assets/works/灰喜鹊.webp",
+		"slug": "hunan-minghui-vi",
+		"name": "湖南明慧 VI 手册",
+		"description": "品牌视觉识别系统手册",
+		"tags": ["品牌", "VI", "视觉识别"],
+		"image": "/assets/works/湖南明慧封面.webp",
 		"video": "",
-		"heroImage": "/assets/works/灰喜鹊.webp",
+		"heroImage": "/assets/works/湖南明慧封面.webp",
 		"content": {
-			"summary": "灰喜鹊品牌视觉设计项目。",
+			"summary": "湖南明慧品牌视觉识别系统手册，完整展示品牌 VI 系统的各个应用场景。",
 			"details": [],
 			"images": []
 		}
 	},
 	{
-		"slug": "luon-models",
-		"name": "Luon Models",
-		"description": "公司官网",
-		"tags": ["企业", "官网", "品牌设计"],
-		"image": "/assets/works/luonmodels.webp",
-		"video": "/assets/works/luonmodels.mp4",
-		"url": "https://luonmodels.netlify.app/",
-		"heroImage": "/assets/works/luonmodels.webp",
+		"slug": "algernon-book-design",
+		"name": "《献给阿尔吉侬的花束》书籍装帧",
+		"description": "科幻经典书籍装帧设计",
+		"tags": ["设计", "书籍装帧"],
+		"image": "/assets/works/algernon-book-cover.webp",
+		"video": "",
+		"heroImage": "/assets/works/algernon-book-cover.webp",
 		"content": {
-			"summary": "公司官网设计项目。",
-			"details": [],
-			"images": []
-		}
-	},
-	{
-		"slug": "ricoog",
-		"name": "RicoOG",
-		"description": "OG 灵感库",
-		"tags": ["Open Graph", "设计", "资源库"],
-		"image": "/assets/works/ricoog.webp",
-		"video": "/assets/works/ricoog.mp4",
-		"url": "https://ricoog.com/",
-		"heroImage": "/assets/works/ricoog.webp",
-		"content": {
-			"summary": "OG 灵感库项目。",
-			"details": [],
-			"images": []
-		}
-	},
-	{
-		"slug": "uiuxdeck",
-		"name": "UIUXDECK",
-		"description": "设计资源与工具",
-		"tags": ["设计", "资源", "工具"],
-		"image": "/assets/works/uiuxdeck.webp",
-		"url": "http://uiuxdeck.com/",
-		"heroImage": "/assets/works/uiuxdeck.webp",
-		"content": {
-			"summary": "设计资源与工具项目。",
-			"details": [],
-			"images": []
-		}
-	},
-	{
-		"slug": "inspoweb",
-		"name": "Inspoweb",
-		"description": "网页灵感库",
-		"tags": ["灵感", "网页合集"],
-		"image": "/assets/works/inspoweb.webp",
-		"url": "https://inspoweb.com/",
-		"heroImage": "/assets/works/inspoweb.webp",
-		"content": {
-			"summary": "网页灵感库项目。",
-			"details": [],
-			"images": []
-		}
-	},
-	{
-		"slug": "gradients-hub",
-		"name": "GradientsHub",
-		"description": "渐变资源与工具",
-		"tags": ["渐变", "资源", "工具"],
-		"image": "/assets/works/gradientshub.webp",
-		"video": "/assets/works/gradientshub.mp4",
-		"url": "https://gradientshub.com",
-		"heroImage": "/assets/works/gradientshub.webp",
-		"content": {
-			"summary": "渐变资源与工具项目。",
+			"summary": "《献给阿尔吉侬的花束》书籍装帧设计项目，通过迷宫概念和可视化设计展现智力变化的轨迹。",
 			"details": [],
 			"images": []
 		}

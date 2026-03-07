@@ -27,7 +27,7 @@ const {
   target = "_blank"
 } = Astro.props;
 
-const href = slug ? `/projects/${slug}` : url || '#';
+const href = slug ? (slug === 'algernon-book-design' ? `/work/${slug}` : `/projects/${slug}`) : url || '#';
 const isExternal = !slug && url && (url.startsWith('http://') || url.startsWith('https://'));
 
 // Generate stable id for each video for precise playback control

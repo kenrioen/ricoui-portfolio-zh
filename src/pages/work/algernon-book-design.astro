@@ -1,0 +1,311 @@
+---
+import { ArrowLeft } from "@lucide/astro";
+import PostLayout from "@/layouts/PostLayout.astro";
+import PageHeader from "@/components/elements/PageHeader.astro";
+
+// 项目信息
+const title = "《献给阿尔吉侬的花束》书籍装帧";
+const description = "科幻经典书籍装帧设计";
+const tags = ["设计", "书籍装帧"];
+
+// 图片路径配置（按照设计说明的命名方案）
+const images = {
+  // 模块1：封面与迷宫隐喻
+  coverMain: "/assets/projects/book/cover-main.webp",
+  coverAnnotation: "/assets/projects/book/cover-annotation.webp",
+  // 模块2：环衬与命运交织
+  endpaper: "/assets/projects/book/endpaper.webp",
+  // 模块3：内文排版与智力光谱
+  contents1: "/assets/projects/book/contents-1.webp",
+  innerSpread: "/assets/projects/book/inner-spread.webp",
+  title1: "/assets/projects/book/title-1.webp",
+  title2: "/assets/projects/book/title-2.webp",
+  inner1: "/assets/projects/book/inner-1.webp",
+  inner2: "/assets/projects/book/inner-2.webp",
+  // 模块4：高亮巧思 - 动态页码
+  edge: "/assets/projects/book/edge.webp",
+  // 第四步：压轴展示
+  mockup1: "/assets/projects/book/mockup-1.webp",
+  mockup2: "/assets/projects/book/mockup-2.webp",
+  mockup3: "/assets/projects/book/mockup-3.webp",
+  mockup4: "/assets/projects/book/mockup-4.webp",
+};
+---
+
+<PostLayout
+  title={title}
+  description={description}
+  keywords={tags.join(", ")}
+>
+  <div class="work article algernon-book-page">
+    <main class="work-wrapper">
+      <!-- 返回按钮 -->
+      <div class="site-container m-auto mb-6">
+        <a
+          href="/works"
+          class="inline-flex items-center gap-2 text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300 transition-colors duration-300 mb-8"
+        >
+          <ArrowLeft size={16} />
+          <span>返回作品集</span>
+        </a>
+
+        <!-- 页面标题 -->
+        <PageHeader
+          title={title}
+          tags={tags}
+          className="mb-6 md:mb-8"
+        />
+      </div>
+
+      <!-- ==================== 模块1：封面与迷宫隐喻 ==================== -->
+      <section class="w-full py-10 md:py-16">
+        <div class="site-container mx-auto">
+          <div class="max-w-3xl mx-auto">
+            <!-- 文本内容 -->
+            <div class="text-red-700 dark:text-red-300 leading-relaxed space-y-6">
+              <p class="font-medium text-lg md:text-xl">
+                在构思《献给阿尔吉侬的花束》的封面时，我没有选择常规的插图，而是将整本书变成了一个巨大的"迷宫"。这既是对书中迷宫实验的直接致敬，也是查理曲折宿命的象征。
+              </p>
+              <p class="text-base md:text-lg">
+                迷宫的四个方位安置了查理人生的四个阶段：从面包店的懵懂，到智力攀升，再到巅峰时的傲视群伦，最后是洞悉真相后在墓前献花的孤独回归。这不仅是一个平面，更是一个微缩的"时间剧场"。
+              </p>
+            </div>
+          </div>
+
+          <!-- 图片：封面与注解 -->
+          <div class="my-12 md:my-16 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              <div class="overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src={images.coverMain}
+                  alt="封面主视觉"
+                  class="w-full h-auto block hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src={images.coverAnnotation}
+                  alt="封面迷宫时间动线注解"
+                  class="w-full h-auto block hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 模块2：环衬与命运交织 ==================== -->
+      <section class="w-full py-10 md:py-16 bg-neutral-50/50 dark:bg-neutral-900/30">
+        <div class="site-container mx-auto">
+          <div class="max-w-3xl mx-auto">
+            <!-- 文本内容 -->
+            <div class="text-red-700 dark:text-red-300 leading-relaxed space-y-6">
+              <p class="text-base md:text-lg">
+                掀开封面，环衬部分采用了日历格的形式，呼应小说的日记体结构。巨大的实验白鼠（阿尔吉侬）剪影叠加于日历之上，笼罩着查理。这暗示了两者作为"实验体"的共同身份，他们的命运紧密交织，互为镜像。
+              </p>
+            </div>
+          </div>
+
+          <!-- 图片：环衬 -->
+          <div class="my-12 md:my-16 max-w-4xl mx-auto">
+            <div class="overflow-hidden rounded-xl shadow-xl">
+              <img
+                src={images.endpaper}
+                alt="环衬设计 - 日历格与阿尔吉侬剪影"
+                class="w-full h-auto block hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 模块3：内文排版与智力光谱 ==================== -->
+      <section class="w-full py-10 md:py-16">
+        <div class="site-container mx-auto">
+          <div class="max-w-3xl mx-auto">
+            <!-- 文本内容 -->
+            <div class="text-red-700 dark:text-red-300 leading-relaxed space-y-6">
+              <p class="text-base md:text-lg">
+                为了强化读者作为"实验观察者"的沉浸感，内文排版直接参与了叙事。目录采用了档案文件夹的视觉形式；早期的"进步报告"保留了查理真实的错别字，并人为加上了红色的删除线进行批改示意，直观呈现他当时艰难的识字水平。
+              </p>
+              <p class="text-base md:text-lg">
+                随着故事推进，标题逐渐变得准确、工整，删除了划线痕迹。文字本身的形态，成为了记录智力进化的心电图。
+              </p>
+            </div>
+          </div>
+
+          <!-- 图片：内页排版 2列网格 -->
+          <div class="my-12 md:my-16 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src={images.contents1}
+                  alt="目录 - 档案文件夹形式"
+                  class="w-full h-auto block hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src={images.innerSpread}
+                  alt="内页跨页展示"
+                  class="w-full h-auto block hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src={images.title1}
+                  alt="标题1 - 近步抱告错别字版"
+                  class="w-full h-auto block hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src={images.title2}
+                  alt="标题2 - 进步报告工整版"
+                  class="w-full h-auto block hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src={images.inner1}
+                  alt="内页排版细节1"
+                  class="w-full h-auto block hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src={images.inner2}
+                  alt="内页排版细节2"
+                  class="w-full h-auto block hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 模块4：高亮巧思 - 动态页码 ==================== -->
+      <section class="w-full py-10 md:py-16 bg-neutral-50/50 dark:bg-neutral-900/30">
+        <div class="site-container mx-auto">
+          <div class="max-w-3xl mx-auto">
+            <!-- 设计亮点卡片 -->
+            <div class="bg-red-50 dark:bg-red-950/20 border-l-4 border-red-500 rounded-r-xl p-6 md:p-8">
+              <div class="flex items-start gap-3 mb-4">
+                <span class="text-2xl">💡</span>
+                <h3 class="text-lg md:text-xl font-semibold text-red-800 dark:text-red-300">
+                  设计巧思：流动的物理刻度
+                </h3>
+              </div>
+              <p class="text-base md:text-lg text-red-700 dark:text-red-300 leading-relaxed">
+                我打破了常规的页码设计，将页码位置随章节推进从页边上沿逐渐下移。当从书籍侧面的切口观看时，红色的页码色块会形成一条阶梯状的流动曲线。这是时间与智力流逝的、最残酷的物理刻度。
+              </p>
+            </div>
+          </div>
+
+          <!-- 图片：侧面切口 -->
+          <div class="my-12 md:my-16 max-w-xs mx-auto px-[60px]">
+            <div class="overflow-hidden rounded-xl shadow-xl">
+              <img
+                src={images.edge}
+                alt="书口侧面 - 页码阶梯曲线"
+                class="w-full h-auto block hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 第四步：压轴展示（效果图阵列） ==================== -->
+      <section class="w-full py-16 md:py-24">
+        <div class="site-container mx-auto">
+          <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+            <p class="text-base md:text-lg text-red-700 dark:text-red-300 leading-relaxed italic">
+              最终实体装帧效果呈现。全书极致的红白配色，是小白鼠的颜色，也是属于阿尔吉侬和查理的生命底色。
+            </p>
+          </div>
+
+          <!-- 效果图 2x2 网格 -->
+          <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div class="overflow-hidden rounded-2xl shadow-2xl group">
+                <img
+                  src={images.mockup1}
+                  alt="实体书效果图1"
+                  class="w-full h-auto block group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="overflow-hidden rounded-2xl shadow-2xl group">
+                <img
+                  src={images.mockup2}
+                  alt="实体书效果图2"
+                  class="w-full h-auto block group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="overflow-hidden rounded-2xl shadow-2xl group">
+                <img
+                  src={images.mockup3}
+                  alt="实体书效果图3"
+                  class="w-full h-auto block group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="overflow-hidden rounded-2xl shadow-2xl group">
+                <img
+                  src={images.mockup4}
+                  alt="实体书效果图4"
+                  class="w-full h-auto block group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</PostLayout>
+
+<style>
+  .algernon-book-page :global(h2) {
+    color: #dc2626 !important;
+  }
+  .algernon-book-page :global(.dark h2) {
+    color: #f87171 !important;
+  }
+  .algernon-book-page :global(.text-primary\/85) {
+    color: rgba(220, 38, 38, 0.85) !important;
+  }
+  .algernon-book-page :global(.dark .text-primary-light\/85) {
+    color: rgba(248, 113, 113, 0.85) !important;
+  }
+  .algernon-book-page :global(.border-primary\/35) {
+    border-color: rgba(220, 38, 38, 0.35) !important;
+  }
+</style>

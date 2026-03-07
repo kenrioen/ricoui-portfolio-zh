@@ -1,0 +1,206 @@
+---
+/**
+ * FlipBook 组件 - 3D 翻页效果
+ * 
+ * @param {string[]} pages - 图片路径数组
+ * @param {number} [width=450] - 单页宽度
+ * @param {number} [height=600] - 单页高度
+ * @param {boolean} [showCover=true] - 是否显示封面（第一页单独展示）
+ */
+
+interface Props {
+  pages: string[];
+  width?: number;
+  height?: number;
+  showCover?: boolean;
+}
+
+const {
+  pages,
+  width = 450,
+  height = 600,
+  showCover = true
+} = Astro.props;
+---
+
+<div class="flipbook-container relative w-full max-w-6xl mx-auto px-4 py-8">
+  <!-- 翻书容器 -->
+  <div
+    id="flipbook"
+    class="mx-auto shadow-2xl"
+    style={{
+      width: '100%',
+      maxWidth: `${width * 2}px`,
+      aspectRatio: `${width}/${height}`
+    }}
+  >
+    <!-- 封面（单独显示） -->
+    {showCover && pages.length > 0 && (
+      <div class="flipbook-cover relative w-full h-full" data-density="hard">
+        <img
+          src={pages[0]}
+          alt="封面"
+          class="w-full h-full object-cover rounded-lg"
+          loading="eager"
+        />
+      </div>
+    )}
+    
+    <!-- 内页 -->
+    {pages.slice(showCover ? 1 : 0).map((page, index) => (
+      <div
+        class="flipbook-page bg-white"
+        data-density="soft"
+      >
+        <img
+          src={page}
+          alt={`第 {index + 2} 页`}
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    ))}
+  </div>
+  
+  <!-- 控制按钮 -->
+  <div class="flipbook-controls flex justify-center gap-4 mt-8">
+    <button
+      id="flipbook-prev"
+      class="px-6 py-3 bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 rounded-lg font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+      disabled
+    >
+      ← 上一页
+    </button>
+    <button
+      id="flipbook-next"
+      class="px-6 py-3 bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 rounded-lg font-medium hover:opacity-90 transition-opacity"
+    >
+      下一页 →
+    </button>
+  </div>
+</div>
+
+<style>
+  .flipbook-container {
+    perspective: 1500px;
+  }
+  
+  .flipbook-cover {
+    background: #fff;
+  }
+  
+  .flipbook-page {
+    background: #fff;
+  }
+  
+  /* 移动端适配 */
+  @media (max-width: 768px) {
+    .flipbook-controls {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .flipbook-controls button {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+</style>
+
+<script>
+  import { PageFlip } from 'page-flip';
+
+  let flipbook: PageFlip | null = null;
+
+  // 初始化翻书
+  function initFlipbook() {
+    const element = document.getElementById('flipbook');
+    if (!element) return;
+
+    // 销毁旧的实例（如果有）
+    if (flipbook) {
+      flipbook.destroy();
+    }
+
+    // 计算合适的尺寸
+    const containerWidth = element.parentElement?.clientWidth || window.innerWidth;
+    const isMobile = containerWidth < 768;
+    
+    // 单页宽度（移动端更小）
+    const pageWidth = isMobile ? Math.min(containerWidth * 0.9, 300) : 450;
+    // 高度根据比例计算
+    const pageHeight = pageWidth * 1.33; // 4:3 比例
+
+    // 创建实例
+    flipbook = new PageFlip(element, {
+      width: pageWidth,
+      height: pageHeight,
+      
+      // 3D 效果配置
+      size: isMobile ? 'fixed' : 'stretch',
+      drawShadow: true,
+      showCover: true,
+      
+      // 翻页效果
+      flippingTime: 1000,
+      gradient: true,
+      usePortrait: isMobile,
+      
+      // 交互配置
+      startPage: 0,
+      zoom: 1,
+      maxZoom: 2,
+      minZoom: 0.5,
+      
+      // 移动端优化
+      mobileScrollSupport: true,
+      disableFlipByClick: false,
+    });
+
+    // 加载页面
+    const pages = element.querySelectorAll('.flipbook-cover, .flipbook-page');
+    flipbook.loadFromHTML(pages as any);
+
+    // 绑定控制按钮
+    const prevBtn = document.getElementById('flipbook-prev');
+    const nextBtn = document.getElementById('flipbook-next');
+
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => {
+        flipbook?.flipPrev();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        flipbook?.flipNext();
+      });
+
+      // 更新按钮状态
+      flipbook.on('flip', (e: any) => {
+        const currentPage = e.data;
+        const totalPages = flipbook?.getPageCount() || 0;
+        
+        if (prevBtn) {
+          (prevBtn as HTMLButtonElement).disabled = currentPage === 0;
+        }
+        
+        if (nextBtn) {
+          (nextBtn as HTMLButtonElement).disabled = currentPage >= totalPages - 1;
+        }
+      });
+    }
+
+    // 窗口大小改变时重新初始化
+    let resizeTimeout: NodeJS.Timeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        initFlipbook();
+      }, 300);
+    });
+  }
+
+  // DOM 加载完成后初始化
+  if (typeof window !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', initFlipbook);
+  }
+</script>

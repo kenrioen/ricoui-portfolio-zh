@@ -104,7 +104,7 @@ const featuredPostWithLink = featuredPost ? {
       </div>
     )}
 
-    <div class="grid gap-x-6 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
+    <div class={`grid gap-x-6 gap-y-10 ${postsWithLinks.length === 1 ? 'grid-cols-1 max-w-md mx-auto' : 'md:grid-cols-2 xl:grid-cols-3'}`}>
       {postsWithLinks && postsWithLinks.map((post, index) => (
         <BlogCard
           content={{ ...post.data, ...post }}

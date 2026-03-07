@@ -1,0 +1,107 @@
+---
+import { ArrowLeft } from "@lucide/astro";
+import PostLayout from "@/layouts/PostLayout.astro";
+import PageHeader from "@/components/elements/PageHeader.astro";
+
+// 项目信息
+const title = "湖南明慧 VI 手册";
+const description = "现代环保农业企业品牌视觉识别系统手册";
+const tags = ["品牌", "VI", "设计"];
+
+// 生成图片路径数组（page-1.webp 到 page-39.webp）
+const totalPages = 39;
+const pages = Array.from({ length: totalPages }, (_, i) => 
+  `/assets/projects/minghui/page-${i + 1}.webp`
+);
+---
+
+<PostLayout
+  title={title}
+  description={description}
+  keywords={tags.join(", ")}
+>
+  <div class="work article">
+    <main class="work-wrapper">
+      <!-- 返回按钮 -->
+      <div class="site-container m-auto mb-6">
+        <a
+          href="/works"
+          class="inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300 mb-8"
+        >
+          <ArrowLeft size={16} />
+          <span>返回作品集</span>
+        </a>
+
+        <!-- 页面标题 -->
+        <PageHeader
+          title={title}
+          tags={tags}
+          className="mb-6 md:mb-8"
+        />
+      </div>
+
+      <!-- 项目自述文案区 -->
+      <section class="w-full py-10 md:py-12">
+        <div class="site-container mx-auto">
+          <div class="max-w-4xl mx-auto">
+            <!-- 正文段落 -->
+            <div class="space-y-6 text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p class="font-medium">
+                这套 VI 系统是我为"湖南明慧"——一家专注于农作物秸秆回收与综合利用的现代环保农业企业所做的视觉重塑。
+              </p>
+              
+              <p>
+                说实话，刚接触这个农业相关的命题时，我思考了很久：如何剥离大众对农业企业"传统、土气"的刻板印象，同时又保留那份与土地血脉相连的温度？我的答案是：回到他们每天工作的田野里去找灵感。
+              </p>
+              
+              <p>
+                在构思 Logo 时，我没有选择常规的麦穗或拖拉机。我观察到秸秆被机械打包后，在田间会形成标志性的"圆形草垛"。因此，我用严谨的几何圆形切线，切出了一片舒展的绿叶，而绿叶的内部巧妙地嵌套了草垛的负空间。这代表着"枯萎的秸秆在这里重新焕发生机"的绿色循环。至于颜色，我没有凭空捏造，而是直接做了一次"自然取色"：他们作业场景里的湛蓝天空、生机盎然的稻田，以及金黄色的草垛，组成了这套最纯粹的品牌调色盘。
+              </p>
+            </div>
+
+            <!-- 设计亮点卡片 -->
+            <div class="my-10 md:my-12 p-6 md:p-8 bg-green-50/30 dark:bg-green-950/10 border-l-4 border-green-400 rounded-r-xl">
+              <div class="flex items-start gap-3 mb-4">
+                <span class="text-2xl">💡</span>
+                <h3 class="text-lg md:text-xl font-semibold text-green-700 dark:text-green-300">
+                  设计巧思：材质即理念
+                </h3>
+              </div>
+              <p class="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                在这套系统的延展设计中，我个人最满意的一个小巧思，是导视牌和员工工牌的材质选择。我没有使用千篇一律的亚克力或金属，而是将<span class="font-medium text-green-700 dark:text-green-400">"环保欧松板（碎木压制板）"</span>的真实纹理与现代工业 PVC 进行了拼接设计。明慧的核心业务是将废弃秸秆"变废为宝"，这种带有天然碎屑肌理的材质，恰恰是对他们企业使命最直白、最浪漫的物理翻译。每一块路牌，都成了品牌理念的无声代言人。
+              </p>
+            </div>
+
+            <!-- 正文段落继续 -->
+            <div class="space-y-6 text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p>
+                在整套严谨的工业化 VI 之外，我还为他们设计了一个小彩蛋——吉祥物<span class="font-medium text-green-700 dark:text-green-400">"白鹭"</span>。在湖南的水田里，白鹭被称为"生态的守护者"。我用绘制 Logo 时同源的几何切线手法画下了它，希望能用这种灵动、亲切的姿态，拉近这家重型农企与普通公众的距离。
+              </p>
+              
+              <p class="font-medium">
+                完成这个项目让我意识到，好的商业设计绝不只是画一个好看的图形，而是用视觉语言，精准地把一个企业"守护绿水青山"的质朴愿景翻译出来。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 沉浸式无限长图流 -->
+      <section class="w-full py-8">
+        <div class="w-full max-w-6xl mx-auto flex flex-col items-center">
+          {
+            pages.map((imgSrc) => (
+              <img
+                src={imgSrc}
+                alt="湖南明慧 VI 手册页面"
+                class="w-full h-auto block"
+                loading="lazy"
+                decoding="async"
+              />
+            ))
+          }
+        </div>
+      </section>
+    </main>
+  </div>
+</PostLayout>

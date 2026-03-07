@@ -7,9 +7,11 @@ import Picture from "@/components/ui/Picture.astro";
 import works from "@/collections/works.json";
 
 export async function getStaticPaths() {
-  return works.filter(work => work.slug).map(work => ({
-    params: { slug: work.slug }
-  }));
+  return works
+    .filter(work => work.slug && work.slug !== 'hunan-minghui-vi' && work.slug !== 'algernon-book-design') // 排除湖南明慧和阿尔吉侬的花束，它们有独立页面
+    .map(work => ({
+      params: { slug: work.slug }
+    }));
 }
 
 const { slug } = Astro.params;
@@ -648,6 +650,25 @@ if (!work) {
 
 				</div>
 			</section>
+
+			<!-- 湖南明慧 VI 手册 - 沉浸式无限长图流 -->
+			{work.slug === 'hunan-minghui-vi' && (
+				<section class="w-full py-8 bg-white dark:bg-neutral-950">
+					<div class="w-full max-w-6xl mx-auto flex flex-col items-center">
+						{
+							Array.from({ length: 39 }, (_, i) => `/assets/projects/minghui/page-${i + 1}.webp`).map((imgSrc) => (
+								<img
+									src={imgSrc}
+									alt="湖南明慧 VI 手册页面"
+									class="w-full h-auto block"
+									loading="lazy"
+									decoding="async"
+								/>
+							))
+						}
+					</div>
+				</section>
+			)}
 		</main>
 	</div>
 	

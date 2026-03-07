@@ -1,41 +1,52 @@
 [
 	{
-		"name": "RicoOG",
-		"description": "OG 灵感库",
-		"tags": ["Open Graph", "设计", "资源库"],
-		"image": "/assets/works/ricoog.webp",
-		"video": "/assets/works/ricoog.mp4",
-		"url": "https://ricoog.com/",
+		"slug": "林间鸟",
+		"name": "林间鸟",
+		"description": "一个充满自然生态与现代设计的完美结合",
+		"tags": ["自然", "生态", "设计"],
+		"image": "/assets/works/林间鸟封面.webp",
+		"video": "",
+		"heroImage": "/assets/works/林间鸟头图.webp",
 		"isShow": true
 	},
 	{
-		"name": "GradientsHub",
-		"description": "渐变资源与工具",
-		"tags": ["渐变","资源","工具"],
-		"image": "/assets/works/gradientshub.webp",
-		"video": "/assets/works/gradientshub.mp4",
-		"url": "https://gradientshub.com"
+		"slug": "the-botanists-lag",
+		"name": "观山杯",
+		"description": "交互式音乐专辑",
+		"tags": ["音乐", "设计", "Godot"],
+		"image": "/assets/works/观山杯封面.webp",
+		"video": "",
+		"heroImage": "/assets/works/观山杯头图.webp",
+		"isShow": true
 	},
 	{
-		"name": "Luon Models",
-		"description": "公司官网",
-		"tags": ["企业","官网","品牌设计"],
-		"image": "/assets/works/luonmodels.webp",
-		"video": "/assets/works/luonmodels.mp4",
-		"url": "https://luonmodels.netlify.app/"
+		"slug": "knights-poker",
+		"name": "Knights Poker",
+		"description": "骑士与狗主题扑克牌设计 / 视觉系统构建",
+		"tags": ["设计", "文化", "文创"],
+		"image": "/assets/works/knights-poker.webp",
+		"video": "/assets/works/knights-poker.mp4",
+		"heroImage": "/assets/works/knights-poker.webp",
+		"isShow": true
 	},
 	{
-		"name": "UIUXDECK",
-		"description": "设计资源与工具",
-		"tags": ["设计","资源","工具"],
-		"image": "/assets/works/uiuxdeck.webp",
-		"url": "http://uiuxdeck.com/"
+		"slug": "hunan-minghui-vi",
+		"name": "湖南明慧 VI 手册",
+		"description": "品牌视觉识别系统手册",
+		"tags": ["品牌", "VI", "视觉识别"],
+		"image": "/assets/works/湖南明慧封面.webp",
+		"video": "",
+		"heroImage": "/assets/works/湖南明慧封面.webp",
+		"isShow": true
 	},
 	{
-		"name": "Inspoweb",
-		"description": "网页灵感库",
-		"tags": ["灵感","网页合集"],
-		"image": "/assets/works/inspoweb.webp",
-		"url": "https://inspoweb.com/"
+		"slug": "algernon-book-design",
+		"name": "《献给阿尔吉侬的花束》书籍装帧",
+		"description": "科幻经典书籍装帧设计",
+		"tags": ["设计", "书籍装帧"],
+		"image": "/assets/works/algernon-book-cover.webp",
+		"video": "",
+		"heroImage": "/assets/works/algernon-book-cover.webp",
+		"isShow": true
 	}
 ]
