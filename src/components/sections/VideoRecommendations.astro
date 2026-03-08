@@ -1,0 +1,98 @@
+---
+import { videos } from "@/data/videos";
+import SectionHeader from "@/components/elements/SectionHeader.astro";
+import AnimatedText from "@/components/ui/AnimatedText.astro";
+
+interface Props {
+  limit?: number;
+}
+
+const { limit = 3 } = Astro.props;
+
+// 指定要推荐的三个视频 ID
+const recommendedVideoIds = [
+  "nv-daxuesheng-de-yitian-meme",  // 女大学生的亿天
+  "ci-ci-shurufa",                 // 刺刺输入法
+  "hudielan"                       // 蝴蝶兰
+];
+
+// 根据 ID 筛选推荐的视频
+const recommendedVideos = videos.filter(video => 
+  recommendedVideoIds.includes(video.id)
+);
+---
+
+<section class="py-16 md:py-20">
+  <div class="site-container">
+    <!-- 标题 -->
+    <SectionHeader 
+      title="视频作品推荐" 
+      description="精选我的创意视频作品，展现动态设计与视觉艺术的完美融合"
+    />
+
+    <!-- 视频卡片网格 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+      {recommendedVideos.map((video, index) => (
+        <a
+          href={`/video/${video.id}`}
+          class="group block bg-white dark:bg-neutral-900 rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 dark:hover:border-primary/50 hover:-translate-y-1"
+          data-aos="fade-up-sm"
+          data-aos-delay={index * 100}
+          data-aos-duration="600"
+          data-aos-once="true"
+        >
+          <!-- 封面图 -->
+          <div class="relative aspect-video overflow-hidden bg-neutral-100 dark:bg-neutral-800">
+            <img
+              src={video.coverUrl}
+              alt={video.title}
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <!-- 播放按钮覆盖层 -->
+            <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors duration-300">
+              <div class="w-16 h-16 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 shadow-lg">
+                <svg
+                  class="w-8 h-8 text-primary ml-1"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- 视频信息 -->
+          <div class="p-5">
+            <h3 class="text-xl font-semibold mb-3 text-neutral-800 dark:text-white group-hover:text-primary transition-colors duration-200">
+              {video.title}
+            </h3>
+            
+            <!-- 标签 -->
+            <div class="flex flex-wrap gap-2">
+              {video.tags.slice(0, 3).map((tag) => (
+                <span class="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-light">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- 查看更多按钮 -->
+    <div class="flex justify-center mt-12">
+      <a
+        href="/video"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-white font-medium transition-all duration-300 hover:bg-primary-dark hover:shadow-lg hover:shadow-primary/25 active:scale-95"
+      >
+        查看所有视频
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

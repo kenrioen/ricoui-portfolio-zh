@@ -6,6 +6,7 @@ import FeaturedWork from "../components/sections/FeaturedWork.astro";
 import BlogSection from "@/components/sections/BlogSection.astro";
 import AnimatedText from "@/components/ui/AnimatedText.astro";
 import Explore from "@/components/sections/Explore.astro";
+import VideoRecommendations from "@/components/sections/VideoRecommendations.astro";
 ---
 
 <Layout
@@ -79,6 +80,16 @@ keywords="黄仕倩, 作品集, 网页设计, UI 设计, 前端开发, 创意设
     data-aos-once="true"
   >
     <Explore title="探索 ↓"  />
+  </section>
+
+  <section
+    class="mt-26 mb-12"
+    data-aos="fade-up-sm"
+    data-aos-delay="100"
+    data-aos-duration="600"
+    data-aos-once="true"
+  >
+    <VideoRecommendations limit={3} />
   </section>
 
   <section
