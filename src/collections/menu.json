@@ -4,6 +4,10 @@
 		"url": "/"
 	},
 	{
+		"name": "视频",
+		"url": "/video"
+	},
+	{
 		"name": "文章",
 		"url": "/blog"
 	},

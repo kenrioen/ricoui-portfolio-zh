@@ -10,7 +10,7 @@ import sharp from 'sharp';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const sourceDir = path.join(__dirname, '..', 'public', 'assets', 'projects', 'book');
+const sourceDir = path.join(__dirname, '..', 'public', 'assets', 'videos');
 
 async function convertPngToWebp() {
   console.log('🔄 开始将 PNG 图片转换为 WebP 格式...\n');

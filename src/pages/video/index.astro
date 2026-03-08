@@ -1,0 +1,73 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { videos } from "@/data/videos";
+
+const pageTitle = "视频作品";
+const pageDescription = "探索动态设计的无限可能，展示创意与技术的完美融合";
+---
+
+<Layout
+  title={`${pageTitle} - kenrioen 的作品集`}
+  description={pageDescription}
+  keywords="视频作品，动态设计，动画，UI 动效，品牌动画"
+>
+  <div class="site-container py-16 md:py-20">
+    <!-- 页面标题 -->
+    <div class="text-center mb-12 md:mb-16">
+      <h1 class="text-4xl md:text-5xl font-brand mb-4 text-neutral-800 dark:text-white">
+        {pageTitle}
+      </h1>
+      <p class="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+        {pageDescription}
+      </p>
+    </div>
+
+    <!-- 视频网格 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {videos.map((video) => (
+        <a
+          href={`/video/${video.id}`}
+          class="group block bg-white dark:bg-neutral-900 rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 dark:hover:border-primary/50 hover:-translate-y-1"
+        >
+          <!-- 封面图 -->
+          <div class="relative aspect-video overflow-hidden bg-neutral-100 dark:bg-neutral-800">
+            <img
+              src={video.coverUrl}
+              alt={video.title}
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <!-- 播放按钮覆盖层 -->
+            <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors duration-300">
+              <div class="w-16 h-16 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 shadow-lg">
+                <svg
+                  class="w-8 h-8 text-primary ml-1"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- 视频信息 -->
+          <div class="p-5">
+            <h3 class="text-xl font-semibold mb-3 text-neutral-800 dark:text-white group-hover:text-primary transition-colors duration-200">
+              {video.title}
+            </h3>
+            
+            <!-- 标签 -->
+            <div class="flex flex-wrap gap-2">
+              {video.tags.map((tag) => (
+                <span class="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-light">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>
