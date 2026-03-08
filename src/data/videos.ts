@@ -11,7 +11,7 @@ export const videos: Video[] = [
   {
     id: "nv-daxuesheng-de-yitian-meme",
     title: "女大学生的亿天（meme 版）",
-    description: "一部充满 meme 元素的创意视频作品，以幽默诙谐的方式展现女大学生的日常生活。通过夸张的表现手法和网络流行文化元素，创造出独特的视觉体验和共鸣感。",
+    description: "猫 meme 视频曾在一段时间内衍生出了各种基于个人经验的二创视频，并拥有十分火热的流量，我在当时也十分受感染，加上我也酷爱整活，所以做出了这个基于我大学生活的视频，有时候再回看这个视频，我依然觉得搞笑并且怀念那段时光",
     tags: ["创意视频", "meme", "日常"],
     iframeCode: '<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116192001922746&bvid=BV1z8NuzHE7o&cid=36545103128&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>',
     coverUrl: "/assets/videos/nv-daxuesheng-de-yitian-meme.webp"
@@ -19,7 +19,7 @@ export const videos: Video[] = [
   {
     id: "sony-boy",
     title: "Sony Boy",
-    description: "以 Sony 品牌为主题的创意视频作品，展现科技与艺术的完美融合。通过精心设计的镜头语言和视觉效果，探索现代科技产品的美学表达。",
+    description: "《漂流少年》是一部我非常喜欢的动漫，可以说动画画风清爽，配乐也十分契合整部作品给人的那种独立动漫的感觉。一次观阅他人创作的启发下我也剪辑出了属于我的 sony boy 意识流视频",
     tags: ["剪辑", "动漫", "意识流"],
     iframeCode: '<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116192018766656&bvid=BV15ZNMz5EzW&cid=36545168318&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>',
     coverUrl: "/assets/videos/sony-boy.webp"
@@ -27,7 +27,7 @@ export const videos: Video[] = [
   {
     id: "wo-de-zangli",
     title: "我的葬礼",
-    description: "一部富有哲思与艺术性的创意短片，通过独特的视角探讨生命与死亡的主题。运用象征性的视觉元素和叙事手法，引发观众对生命意义的深度思考。",
+    description: "这个视频的构思其实是一场温暖的误会，小幽灵发现了一块无人的土堆于是放上了自己的相片，来补偿自己死亡的仪式感。路过的动物由于十分暖心纷纷献上了自己觉得能够贡献的'好的东西'，最后善意越来越多，明明象征死亡的土堆却显得十分温暖。最后出现的小浣熊十分淘气的将相片涂改成自己的样子，可以说是象征着不介意死亡，同时向往善意的举动",
     tags: ["手绘短片", "叙事", "可爱"],
     iframeCode: '<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116192001989373&bvid=BV1f8NuzHEtG&cid=36545105290&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>',
     coverUrl: "/assets/videos/wo-de-zangli.webp"
@@ -35,7 +35,7 @@ export const videos: Video[] = [
   {
     id: "ci-ci-shurufa",
     title: "刺刺输入法",
-    description: "充满想象力的创意作品，将输入法这一日常工具拟人化、艺术化。通过趣味性的视觉表现和动态设计，展现科技产品与用户情感之间的有趣连接。",
+    description: "刺刺输入法是一个对 ai 产品的畅想，我想象的是未来会出现一款嵌入了 ai 大模型的输入法来帮人们解决各个场景下需要交流沟通的难题。它有时候能帮你骂人，有时候能靠联机让别人夺舍你来解决沟通问题，也能帮你自动化的处理一些维权或者说一些僵硬的流程。技术原理就是通过读取你屏幕的信息来判断情况，然后给你相应的选项来选择如何自动化的帮你定制化的解决问题",
     tags: ["宣传动画", "产品演示", "手绘短片"],
     iframeCode: '<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116192035544746&bvid=BV15dNMz1EfL&cid=36545299838&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>',
     coverUrl: "/assets/videos/ci-ci-shurufa.webp"
@@ -43,7 +43,7 @@ export const videos: Video[] = [
   {
     id: "hudielan",
     title: "蝴蝶兰",
-    description: "以蝴蝶兰为灵感创作的视觉艺术作品，展现自然之美与现代设计的融合。通过细腻的镜头语言和精致的色彩运用，呈现出如诗如画的视觉体验。",
+    description: "这个其实是一个蝴蝶兰的软广告视频，视频内容是根据个人经历来绘制的动画：深入检出的宅人偶然养了一株蝴蝶兰，在悉心照顾的过程中看到了蝴蝶兰的花开花谢很是感动，并且在意识到植物也是生命的那一刻，明白自己就算是钢筋水泥里的宅人也是有人陪伴的",
     tags: ["自然美学", "广告创意", "手绘短片"],
     iframeCode: '<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116192438131212&bvid=BV1cCNMz9Eef&cid=36547267951&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>',
     coverUrl: "/assets/videos/hudielan.webp"
@@ -51,7 +51,7 @@ export const videos: Video[] = [
   {
     id: "qiu",
     title: "秋",
-    description: "以秋季为主题的意境短片，捕捉秋天的独特韵味和情感氛围。通过诗意的画面和细腻的情感表达，带领观众进入一个充满诗意与思考的秋日世界。",
+    description: "节选了二十四节气里面的秋露和春分，然后 ps 处理了两张古画做出动效后产出的带配乐短片",
     tags: ["二十四节气", "文物修复", "宣传动画"],
     iframeCode: '<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116192438195766&bvid=BV1HCNMz9EHo&cid=36547464556&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>',
     coverUrl: "/assets/videos/qiu.webp"
