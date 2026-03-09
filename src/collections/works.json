@@ -76,5 +76,72 @@
 			"details": [],
 			"images": []
 		}
+	},
+	{
+		"slug": "pixel-world",
+		"name": "像素世界",
+		"description": "像素风格插画作品集",
+		"category": ["插画", "视觉传达", "像素画"],
+		"tags": ["手绘", "像素", "插画"],
+		"image": "/assets/works/pixel-world-cover.webp",
+		"video": "",
+		"content": {
+			"summary": "像素世界是一个探索像素艺术魅力的插画集项目，通过复古的像素风格展现现代插画艺术的独特美感。",
+			"details": [
+				"本项目包含 12 幅精心创作的像素插画作品，每一幅都展现了像素艺术的独特魅力。",
+				"像素艺术是一种以低分辨率像素图为表现形式的数字艺术，它要求艺术家在有限的像素空间内创造出丰富的视觉效果。"
+			],
+			"images": [
+				{
+					"url": "/assets/projects/pixel-world/pixel-01.webp",
+					"alt": "像素插画作品 01"
+				},
+				{
+					"url": "/assets/projects/pixel-world/pixel-02.webp",
+					"alt": "像素插画作品 02"
+				},
+				{
+					"url": "/assets/projects/pixel-world/pixel-03.webp",
+					"alt": "像素插画作品 03"
+				},
+				{
+					"url": "/assets/projects/pixel-world/pixel-04.webp",
+					"alt": "像素插画作品 04"
+				},
+				{
+					"url": "/assets/projects/pixel-world/pixel-05.webp",
+					"alt": "像素插画作品 05"
+				},
+				{
+					"url": "/assets/projects/pixel-world/pixel-06.webp",
+					"alt": "像素插画作品 06"
+				},
+				{
+					"url": "/assets/projects/pixel-world/pixel-07.webp",
+					"alt": "像素插画作品 07"
+				},
+				{
+					"url": "/assets/projects/pixel-world/pixel-08.webp",
+					"alt": "像素插画作品 08"
+				},
+				{
+					"url": "/assets/projects/pixel-world/pixel-09.webp",
+					"alt": "像素插画作品 09"
+				},
+				{
+					"url": "/assets/projects/pixel-world/pixel-10.webp",
+					"alt": "像素插画作品 10"
+				},
+				{
+					"url": "/assets/projects/pixel-world/pixel-11.webp",
+					"alt": "像素插画作品 11"
+				},
+				{
+					"url": "/assets/projects/pixel-world/pixel-12.webp",
+					"alt": "像素插画作品 12"
+				}
+			]
+		},
+		"isShow": true
 	}
 ]

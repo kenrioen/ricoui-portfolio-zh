@@ -1,0 +1,359 @@
+---
+// 像素世界桌宠组件
+// 状态：待机(IMG_1191) -> 行走(IMG_1193) -> 被抓取(IMG_1192)
+---
+
+<div id="pixel-pet-container">
+  <div id="pixel-pet-text">随便看看吧~</div>
+  <img 
+    id="pixel-pet-img"
+    src="/assets/projects/pixel-world/IMG_1191.webp" 
+    alt="像素桌宠"
+    draggable="false"
+  />
+</div>
+
+<script>
+  (function initPixelPet() {
+    const container = document.getElementById('pixel-pet-container');
+    const img = document.getElementById('pixel-pet-img');
+    const text = document.getElementById('pixel-pet-text');
+    
+    if (!container || !img || !text) return;
+    
+    // 状态定义
+    const STATE = {
+      IDLE: 'idle',
+      WALK: 'walk',
+      DRAG: 'drag'
+    };
+    
+    // 图片路径
+    const IMAGES = {
+      [STATE.IDLE]: '/assets/projects/pixel-world/IMG_1191.webp',
+      [STATE.WALK]: '/assets/projects/pixel-world/IMG_1193.webp',
+      [STATE.DRAG]: '/assets/projects/pixel-world/IMG_1192.webp'
+    };
+    
+    // 当前状态
+    let currentState = STATE.IDLE;
+    let currentX = 0;
+    let currentY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    let direction = 1;
+    let isDragging = false;
+    let dragOffsetX = 0;
+    let dragOffsetY = 0;
+    
+    // 计时器
+    let idleTimer = null;
+    let walkTimer = null;
+    let animationFrame = null;
+    
+    // 配置
+    const CONFIG = {
+      IDLE_TIME: 5000,
+      WALK_TIME: 3000,
+      WALK_SPEED: 1.5,
+      PET_SIZE: 128
+    };
+    
+    // 初始化位置
+    function initPosition() {
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      
+      currentX = Math.random() * (viewportWidth - CONFIG.PET_SIZE);
+      currentY = Math.random() * (viewportHeight - CONFIG.PET_SIZE);
+      
+      updatePosition();
+    }
+    
+    // 更新位置
+    function updatePosition() {
+      container.style.left = currentX + 'px';
+      container.style.top = currentY + 'px';
+    }
+    
+    // 设置状态
+    function setState(newState) {
+      if (currentState === newState) return;
+      currentState = newState;
+      img.src = IMAGES[newState];
+      updateFlip();
+      
+      // 控制呼吸文本显示 - 只在行走状态显示
+      if (newState === STATE.WALK) {
+        text.classList.add('show');
+      } else {
+        text.classList.remove('show');
+      }
+    }
+    
+    // 更新翻转
+    function updateFlip() {
+      if (direction === 1) {
+        img.style.transform = 'scaleX(-1)';
+      } else {
+        img.style.transform = 'scaleX(1)';
+      }
+    }
+    
+    // 生成随机目标
+    function generateTarget() {
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      
+      targetX = Math.random() * (viewportWidth - CONFIG.PET_SIZE);
+      targetY = Math.random() * (viewportHeight - CONFIG.PET_SIZE);
+      direction = targetX > currentX ? 1 : -1;
+    }
+    
+    // 检查边界
+    function checkBounds() {
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      
+      let hitEdge = false;
+      
+      if (currentX <= 0) {
+        currentX = 0;
+        direction = 1;
+        hitEdge = true;
+      } else if (currentX >= viewportWidth - CONFIG.PET_SIZE) {
+        currentX = viewportWidth - CONFIG.PET_SIZE;
+        direction = -1;
+        hitEdge = true;
+      }
+      
+      if (currentY <= 0) {
+        currentY = 0;
+        hitEdge = true;
+      } else if (currentY >= viewportHeight - CONFIG.PET_SIZE) {
+        currentY = viewportHeight - CONFIG.PET_SIZE;
+        hitEdge = true;
+      }
+      
+      if (hitEdge && currentState === STATE.WALK) {
+        generateTarget();
+      }
+      
+      return hitEdge;
+    }
+    
+    // 行走动画
+    function walk() {
+      if (isDragging || currentState !== STATE.WALK) return;
+      
+      const dx = targetX - currentX;
+      const dy = targetY - currentY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      
+      if (distance < CONFIG.WALK_SPEED) {
+        currentX = targetX;
+        currentY = targetY;
+        updatePosition();
+        startIdle();
+        return;
+      }
+      
+      const moveX = (dx / distance) * CONFIG.WALK_SPEED;
+      const moveY = (dy / distance) * CONFIG.WALK_SPEED;
+      
+      currentX += moveX;
+      currentY += moveY;
+      direction = moveX > 0 ? 1 : -1;
+      
+      checkBounds();
+      updateFlip();
+      updatePosition();
+      
+      animationFrame = requestAnimationFrame(walk);
+    }
+    
+    // 开始待机
+    function startIdle() {
+      setState(STATE.IDLE);
+      idleTimer = setTimeout(() => {
+        if (!isDragging) startWalk();
+      }, CONFIG.IDLE_TIME);
+    }
+    
+    // 开始行走
+    function startWalk() {
+      setState(STATE.WALK);
+      generateTarget();
+      walkTimer = setTimeout(() => {
+        if (!isDragging && currentState === STATE.WALK) {
+          startIdle();
+        }
+      }, CONFIG.WALK_TIME);
+      walk();
+    }
+    
+    // 鼠标按下
+    function onMouseDown(e) {
+      e.preventDefault();
+      isDragging = true;
+      clearTimeout(idleTimer);
+      clearTimeout(walkTimer);
+      cancelAnimationFrame(animationFrame);
+      setState(STATE.DRAG);
+      
+      const rect = container.getBoundingClientRect();
+      dragOffsetX = e.clientX - rect.left;
+      dragOffsetY = e.clientY - rect.top;
+      
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+    }
+    
+    // 鼠标移动
+    function onMouseMove(e) {
+      if (!isDragging) return;
+      currentX = e.clientX - dragOffsetX;
+      currentY = e.clientY - dragOffsetY;
+      
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      
+      currentX = Math.max(0, Math.min(currentX, viewportWidth - CONFIG.PET_SIZE));
+      currentY = Math.max(0, Math.min(currentY, viewportHeight - CONFIG.PET_SIZE));
+      
+      updatePosition();
+    }
+    
+    // 鼠标释放
+    function onMouseUp() {
+      isDragging = false;
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+      startIdle();
+    }
+    
+    // 触摸事件
+    function onTouchStart(e) {
+      e.preventDefault();
+      const touch = e.touches[0];
+      isDragging = true;
+      clearTimeout(idleTimer);
+      clearTimeout(walkTimer);
+      cancelAnimationFrame(animationFrame);
+      setState(STATE.DRAG);
+      
+      const rect = container.getBoundingClientRect();
+      dragOffsetX = touch.clientX - rect.left;
+      dragOffsetY = touch.clientY - rect.top;
+      
+      document.addEventListener('touchmove', onTouchMove, { passive: false });
+      document.addEventListener('touchend', onTouchEnd);
+    }
+    
+    function onTouchMove(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      const touch = e.touches[0];
+      currentX = touch.clientX - dragOffsetX;
+      currentY = touch.clientY - dragOffsetY;
+      
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      
+      currentX = Math.max(0, Math.min(currentX, viewportWidth - CONFIG.PET_SIZE));
+      currentY = Math.max(0, Math.min(currentY, viewportHeight - CONFIG.PET_SIZE));
+      
+      updatePosition();
+    }
+    
+    function onTouchEnd() {
+      isDragging = false;
+      document.removeEventListener('touchmove', onTouchMove);
+      document.removeEventListener('touchend', onTouchEnd);
+      startIdle();
+    }
+    
+    // 窗口大小改变
+    function onResize() {
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      currentX = Math.min(currentX, viewportWidth - CONFIG.PET_SIZE);
+      currentY = Math.min(currentY, viewportHeight - CONFIG.PET_SIZE);
+      updatePosition();
+    }
+    
+    // 事件绑定
+    container.addEventListener('mousedown', onMouseDown);
+    container.addEventListener('touchstart', onTouchStart, { passive: false });
+    window.addEventListener('resize', onResize);
+    
+    // 初始化
+    initPosition();
+    startIdle();
+  })();
+</script>
+
+<style>
+  /* 像素桌宠 - 完全独立样式，无任何装饰 */
+  #pixel-pet-container {
+    position: fixed;
+    z-index: 9999;
+    width: 128px;
+    height: 128px;
+    /* 完全无装饰 */
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    /* 交互样式 */
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+  
+  #pixel-pet-container:active {
+    cursor: grabbing;
+  }
+  
+  #pixel-pet-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+    /* 完全无装饰 */
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    filter: none !important;
+    /* 防止事件干扰 */
+    pointer-events: none;
+    /* 平滑翻转过渡 */
+    transition: transform 0.1s linear;
+  }
+  
+  /* 呼吸文本样式 */
+  #pixel-pet-text {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    white-space: nowrap;
+    font-size: 12px;
+    color: #666;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 4px 10px;
+    border-radius: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #pixel-pet-text.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+</style>

@@ -4,6 +4,7 @@ import PostLayout from "@/layouts/PostLayout.astro";
 import PageHeader from "@/components/elements/PageHeader.astro";
 import SeparatorLine from "@/components/elements/SeparatorLine.astro";
 import Picture from "@/components/ui/Picture.astro";
+import PixelPet from "@/components/PixelPet.astro";
 import works from "@/collections/works.json";
 
 export async function getStaticPaths() {
@@ -134,7 +135,23 @@ if (!work) {
 								>
 									
 								</div>
-							) : (
+							) : work.slug === 'pixel-world' ? (
+							<!-- 像素世界专用布局 - 无背景 -->
+							<div 
+								class="p-4 md:p-5"
+								data-aos="fade-up"
+								data-aos-duration="800"
+								data-aos-delay="100"
+							>
+								<h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-2.5 flex items-center gap-2">
+									<span class="w-1 h-4 bg-purple-500 rounded-full"></span>
+									关于像素世界
+								</h3>
+								<p class="text-sm md:text-base text-neutral-700 dark:text-neutral-300 leading-snug">
+									这里是一些曾经画的像素画，另外！桌宠可以拖拽哦
+								</p>
+							</div>
+						) : (
 								<!-- 林间鸟原有布局 -->
 								<>
 									<div 
@@ -174,7 +191,113 @@ if (!work) {
 						</div>
 					</div>
 
-					{work.slug === 'the-botanists-lag' ? (
+					{work.slug === 'pixel-world' && work.content?.images ? (
+						<!-- 像素世界专属内容 -->
+						
+						<!-- IMG_1191 轮播展示 - 画廊上方 - 像素世界专属样式 -->
+						<div class="mt-16 mb-12 pixel-carousel-container">
+							<div class="pixel-carousel-track" id="img1191-carousel">
+								{Array(3).fill(0).map((_, setIndex) => (
+									<div class="pixel-carousel-set" data-set={setIndex}>
+										<img
+											src="/assets/projects/pixel-world/IMG_1191.webp"
+											alt="像素世界动画展示 1"
+											class="pixel-image"
+											style="animation: float 3s ease-in-out infinite;"
+											loading="lazy"
+										/>
+										<img
+											src="/assets/projects/pixel-world/IMG_1191.webp"
+											alt="像素世界动画展示 1"
+											class="pixel-image"
+											style="animation: float 3s ease-in-out infinite; animation-delay: 0.3s;"
+											loading="lazy"
+										/>
+										<img
+											src="/assets/projects/pixel-world/IMG_1191.webp"
+											alt="像素世界动画展示 1"
+											class="pixel-image"
+											style="animation: float 3s ease-in-out infinite; animation-delay: 0.6s;"
+											loading="lazy"
+										/>
+									</div>
+								))}
+							</div>
+						</div>
+						
+						<!-- 像素画画廊 -->
+						<div class="mb-[100px]">
+							<h2 
+								class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-8 text-center"
+								data-aos="fade-up"
+								data-aos-duration="800"
+							>
+								像素画作品
+							</h2>
+							
+							<!-- 3 列网格布局 -->
+							<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+								{work.content.images.map((image, index) => (
+									<div 
+										class="group relative overflow-visible rounded-2xl bg-transparent"
+										data-aos="fade-up"
+										data-aos-duration="600"
+										data-aos-delay={index * 80}
+									>
+										<div class="relative aspect-square overflow-hidden rounded-2xl">
+											<img
+												src={image.url}
+												alt={image.alt}
+												class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-125 group-hover:z-50 pixelated"
+												loading="lazy"
+												style="image-rendering: pixelated;"
+											/>
+										</div>
+										<!-- 悬停时显示的作品名称 -->
+										<div class="absolute inset-0 flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-60">
+											<div class="bg-black/70 backdrop-blur-sm text-white text-sm font-medium px-4 py-2 rounded-full mb-4">
+												{image.alt}
+											</div>
+										</div>
+									</div>
+								))}
+							</div>
+						</div>
+						
+						<!-- IMG_1192 轮播展示 - 画廊下方 - 像素世界专属样式 -->
+						<div class="mt-[100px] mb-12 pixel-carousel-container">
+							<div class="pixel-carousel-track" id="img1192-carousel">
+								{Array(3).fill(0).map((_, setIndex) => (
+									<div class="pixel-carousel-set" data-set={setIndex}>
+										<img
+											src="/assets/projects/pixel-world/IMG_1192.webp"
+											alt="像素世界动画展示 2"
+											class="pixel-image"
+											style="animation: float 3s ease-in-out infinite;"
+											loading="lazy"
+										/>
+										<img
+											src="/assets/projects/pixel-world/IMG_1192.webp"
+											alt="像素世界动画展示 2"
+											class="pixel-image"
+											style="animation: float 3s ease-in-out infinite; animation-delay: 0.3s;"
+											loading="lazy"
+										/>
+										<img
+											src="/assets/projects/pixel-world/IMG_1192.webp"
+											alt="像素世界动画展示 2"
+											class="pixel-image"
+											style="animation: float 3s ease-in-out infinite; animation-delay: 0.6s;"
+											loading="lazy"
+										/>
+									</div>
+								))}
+							</div>
+						</div>
+						
+						<!-- 像素桌宠 -->
+						<PixelPet />
+					) : work.slug === 'the-botanists-lag' ? (
 						<!-- 观山杯沉浸式暗黑主题 -->
 						<div class="bg-black text-zinc-100 -mx-4 px-4 md:-mx-8 md:px-8 py-12">
 							
@@ -909,7 +1032,82 @@ if (!work) {
 	document.addEventListener('DOMContentLoaded', initCarousel);
 </script>
 
+<!-- 像素世界 IMG_1191 和 IMG_1192 自动轮播脚本 -->
+<script>
+	(function initPixelWorldCarousel() {
+		const img1191Carousel = document.getElementById('img1191-carousel');
+		const img1192Carousel = document.getElementById('img1192-carousel');
+		
+		function animateCarousel(carousel) {
+			if (!carousel) return;
+			
+			let currentIndex = 0;
+			const sets = carousel.querySelectorAll('.pixel-carousel-set');
+			const totalSets = sets.length;
+			
+			if (totalSets === 0) return;
+			
+			function moveToNext() {
+				currentIndex = (currentIndex + 1) % totalSets;
+				const offset = -currentIndex * 100; // 每套占 100% 宽度
+				carousel.style.transform = `translateX(${offset}%)`;
+			}
+			
+			// 每 1.5 秒移动一次（原 2 秒的 0.75 倍速）
+			setInterval(moveToNext, 1500);
+		}
+		
+		animateCarousel(img1191Carousel);
+		animateCarousel(img1192Carousel);
+	})();
+</script>
+
 <style>
+/* 像素世界专属轮播样式 - 完全无边框无阴影 */
+.pixel-carousel-container {
+	overflow: hidden;
+}
+
+.pixel-carousel-track {
+	display: flex;
+	transition: transform 1s ease-in-out;
+}
+
+.pixel-carousel-set {
+	display: flex;
+	min-width: 100%;
+	gap: 2rem;
+	justify-content: center;
+}
+
+.pixel-image {
+	height: 75px;
+	width: auto;
+	image-rendering: pixelated;
+	display: block;
+	/* 确保没有任何边框和阴影 */
+	border: none !important;
+	box-shadow: none !important;
+	outline: none !important;
+	background: transparent !important;
+}
+
+@media (min-width: 768px) {
+	.pixel-image {
+		height: 100px;
+	}
+}
+
+/* 浮动动画 */
+@keyframes float {
+	0%, 100% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
 /* 3D 倾斜图片样式 */
 .tilt-container {
   perspective: 1000px;
