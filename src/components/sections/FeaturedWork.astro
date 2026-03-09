@@ -9,6 +9,7 @@ interface Props {
   description?: string;
   showAll?: boolean;
   limit?: number; // 限制显示的项目数量
+  showViewAll?: boolean; // 是否显示"查看更多"按钮
 }
 
 interface Project {
@@ -26,7 +27,8 @@ const {
   title = "精选作品",
   description = "我把脑海里的想法开发为真实可行的项目，这是一个非常有趣的过程。",
   showAll = false,
-  limit
+  limit,
+  showViewAll = false
 } = Astro.props;
 
 // 获取项目列表
@@ -49,9 +51,9 @@ const featuredProjects = allProjects.slice(0, 3);
 const gridProjects = allProjects.slice(3);
 
 // 判断是否应该显示 "View All" 按钮
-const shouldShowViewAll = limit !== undefined
+const shouldShowViewAll = showViewAll || (limit !== undefined
   ? limit < projects.length
-  : !showAll && projects.length > 6;
+  : !showAll && projects.length > 6);
 ---
 
 <section class="py-16 md:py-16 md:pb-12">
