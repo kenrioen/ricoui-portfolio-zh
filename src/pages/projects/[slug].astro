@@ -9,7 +9,7 @@ import works from "@/collections/works.json";
 
 export async function getStaticPaths() {
   return works
-    .filter(work => work.slug && work.slug !== 'hunan-minghui-vi' && work.slug !== 'algernon-book-design') // 排除湖南明慧和阿尔吉侬的花束，它们有独立页面
+    .filter(work => work.slug && work.slug !== 'hunan-minghui-vi' && work.slug !== 'algernon-book-design' && work.slug !== 'food-carnival') // 排除有独立页面的项目
     .map(work => ({
       params: { slug: work.slug }
     }));
@@ -149,6 +149,22 @@ if (!work) {
 								</h3>
 								<p class="text-sm md:text-base text-neutral-700 dark:text-neutral-300 leading-snug">
 									这里是一些曾经画的像素画，另外！桌宠可以拖拽哦
+								</p>
+							</div>
+						) : work.slug === 'food-carnival' ? (
+							<!-- 美食嘉年华专用布局 -->
+							<div 
+								class="p-4 md:p-5"
+								data-aos="fade-up"
+								data-aos-duration="800"
+								data-aos-delay="100"
+							>
+								<h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-2.5 flex items-center gap-2">
+									<span class="w-1 h-4 bg-orange-500 rounded-full"></span>
+									关于美食嘉年华
+								</h3>
+								<p class="text-sm md:text-base text-neutral-700 dark:text-neutral-300 leading-snug">
+									美食嘉年华是一系列以美食为主题的创意插画作品，融合了中、日、韩等多国美食文化元素，以及万圣节主题趣味设计。
 								</p>
 							</div>
 						) : (

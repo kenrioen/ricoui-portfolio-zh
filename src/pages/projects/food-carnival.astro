@@ -1,0 +1,356 @@
+---
+import PostLayout from "@/layouts/PostLayout.astro";
+import SeparatorLine from "@/components/elements/SeparatorLine.astro";
+import { ArrowLeft, Plus, Check, ShoppingBag } from "@lucide/astro";
+
+// 美食数据
+const foodItems = [
+  { id: 1, name: "珍珠奶茶", image: "/assets/projects/单体/珍珠奶茶.webp" },
+  { id: 2, name: "章鱼烧", image: "/assets/projects/单体/章鱼烧.webp" },
+  { id: 3, name: "小笼包", image: "/assets/projects/单体/小笼包.webp" },
+  { id: 4, name: "拉面", image: "/assets/projects/单体/拉面.webp" },
+  { id: 5, name: "肉夹馍", image: "/assets/projects/单体/肉夹馍.webp" },
+  { id: 6, name: "冰糖葫芦", image: "/assets/projects/单体/冰糖葫芦.webp" },
+  { id: 7, name: "鲷鱼烧", image: "/assets/projects/单体/鲷鱼烧.webp" },
+  { id: 8, name: "韩国年糕", image: "/assets/projects/单体/韩国年糕.webp" },
+  { id: 9, name: "烧烤", image: "/assets/projects/单体/烧烤.webp" },
+  { id: 10, name: "刨冰", image: "/assets/projects/单体/刨冰.webp" },
+  { id: 11, name: "南瓜拉面", image: "/assets/projects/单体/南瓜拉面.webp" },
+  { id: 12, name: "蝙蝠翅膀包子", image: "/assets/projects/单体/蝙蝠翅膀包子.webp" },
+  { id: 13, name: "骷髅手奶茶", image: "/assets/projects/单体/骷髅手奶茶.webp" },
+  { id: 14, name: "眼珠章鱼烧", image: "/assets/projects/单体/眼珠章鱼烧.webp" },
+  { id: 15, name: "幽灵糖", image: "/assets/projects/单体/幽灵糖.webp" },
+  { id: 16, name: "糖果", image: "/assets/projects/单体/糖1.webp" },
+  { id: 17, name: "南瓜", image: "/assets/projects/单体/南瓜1.webp" },
+  { id: 18, name: "南瓜2", image: "/assets/projects/单体/南瓜2.webp" },
+  { id: 19, name: "南瓜3", image: "/assets/projects/单体/南瓜3.webp" },
+  { id: 20, name: "南瓜日本灯", image: "/assets/projects/单体/南瓜日本灯.webp" },
+  { id: 21, name: "日本夜叉面具", image: "/assets/projects/单体/日本夜叉面具.webp" },
+  { id: 22, name: "獠牙舞狮", image: "/assets/projects/单体/獠牙舞狮.webp" },
+  { id: 23, name: "叼饺子蝙蝠", image: "/assets/projects/单体/叼饺子蝙蝠.webp" },
+  { id: 24, name: "眼珠糖", image: "/assets/projects/单体/眼珠糖.webp" },
+  { id: 25, name: "Demon Hunter Pop", image: "/assets/projects/单体/Demon Hunter Pop.webp" },
+  { id: 26, name: "Rabbit Moonshine", image: "/assets/projects/单体/Rabbit Moonshine.webp" },
+  { id: 27, name: "Senbonzakura", image: "/assets/projects/单体/Senbonzakura.webp" },
+];
+---
+
+<PostLayout
+  title="美食嘉年华"
+  description="美食主题创意插画与品牌宣传设计"
+  keywords="品牌, 宣传, 美食"
+>
+  <div class="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900">
+    <!-- 头部 -->
+    <header class="py-8 px-4 md:px-8">
+      <div class="max-w-6xl mx-auto">
+        <a 
+          href="/works" 
+          class="inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-orange-500 transition-colors"
+        >
+          <ArrowLeft size={20} />
+          <span>返回作品集</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- 标题区域 -->
+    <section class="py-12 px-4 md:px-8 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold text-orange-500 mb-4" style="color: #f97316;">
+          美食嘉年华
+        </h1>
+        <p class="text-lg text-neutral-600 dark:text-neutral-400 mb-2">
+          品牌 · 宣传 · 美食
+        </p>
+        <p class="text-neutral-500 dark:text-neutral-500 max-w-2xl mx-auto">
+          美食嘉年华是一系列以美食为主题的创意插画作品，融合了中、日、韩等多国美食文化元素，以及万圣节主题趣味设计。
+        </p>
+      </div>
+    </section>
+
+    <!-- 点单区域 -->
+    <section class="py-8 px-4 md:px-8">
+      <div class="max-w-6xl mx-auto">
+        <!-- 点单标题 -->
+        <div class="text-center mb-8">
+          <h2 class="text-2xl md:text-3xl font-bold text-orange-500 flex items-center justify-center gap-3" style="color: #f97316;">
+            <ShoppingBag class="text-orange-500" size={28} />
+            欢迎点餐
+          </h2>
+          <p class="text-neutral-500 dark:text-neutral-500 mt-2">
+            点击"添加"按钮选择您喜欢的美食或道具
+          </p>
+        </div>
+
+        <!-- 菜品网格 -->
+        <div id="food-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          {foodItems.map((item) => (
+            <div 
+              class="food-item bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group"
+              data-food-id={item.id}
+              data-food-name={item.name}
+            >
+              <!-- 图片区域 -->
+              <div class="aspect-square overflow-hidden bg-white dark:bg-neutral-700 flex items-center justify-center p-6">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  class="w-[65%] h-[65%] object-contain group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+
+              <!-- 信息区域 -->
+              <div class="p-4 flex items-center justify-between bg-orange-500">
+                <span class="font-medium text-white text-sm md:text-base">
+                  {item.name}
+                </span>
+                <button
+                  class="add-btn w-8 h-8 rounded-full bg-white text-orange-500 hover:bg-orange-100 transition-all duration-200 flex items-center justify-center"
+                  data-food-id={item.id}
+                  aria-label={`添加 ${item.name}`}
+                >
+                  <Plus size={18} />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- 完成点单按钮 -->
+        <div class="mt-12 text-center">
+          <button 
+            id="complete-order-btn"
+            class="inline-flex items-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          >
+            <Check size={20} />
+            完成点单
+          </button>
+        </div>
+
+        <!-- 订单结果区域 -->
+        <div id="order-result" class="hidden mt-12">
+          <h3 class="text-2xl font-bold text-orange-500 mb-8 text-center" style="color: #f97316;">
+            您的订单
+          </h3>
+          <div id="selected-items" class="flex flex-wrap justify-center gap-4">
+            <!-- 选中的菜品将显示在这里 -->
+          </div>
+          <div id="order-texts" class="mt-8 space-y-2 text-center">
+            <!-- 订单文本将逐条显示在这里 -->
+          </div>
+          <div class="text-center mt-8" style="margin-top: 62px;">
+            <button
+              id="reset-order-btn"
+              class="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-full transition-all duration-200"
+            >
+              重新点餐
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-8 px-4 md:px-8 text-center">
+      <div class="max-w-6xl mx-auto">
+        <SeparatorLine />
+        <p class="text-neutral-400 dark:text-neutral-600 text-sm mt-4">
+          美食嘉年华 · 创意插画设计
+        </p>
+      </div>
+    </footer>
+  </div>
+</PostLayout>
+
+<script>
+  (function initFoodOrder() {
+    const foodGrid = document.getElementById('food-grid');
+    const completeBtn = document.getElementById('complete-order-btn');
+    const orderResult = document.getElementById('order-result');
+    const selectedItemsContainer = document.getElementById('selected-items');
+    const resetBtn = document.getElementById('reset-order-btn');
+    
+    if (!foodGrid || !completeBtn || !orderResult || !selectedItemsContainer || !resetBtn) return;
+    
+    // 存储选中的菜品
+    const selectedFoods = new Set();
+    
+    // 添加/移除菜品
+    function toggleFood(id, name, button) {
+      const foodItem = button.closest('.food-item');
+
+      if (selectedFoods.has(id)) {
+        selectedFoods.delete(id);
+        button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>';
+        button.classList.remove('bg-green-500', 'text-white');
+        button.classList.add('bg-white', 'text-orange-500');
+        foodItem.classList.remove('ring-2', 'ring-orange-500');
+      } else {
+        selectedFoods.add(id);
+        button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+        button.classList.remove('bg-white', 'text-orange-500');
+        button.classList.add('bg-green-500', 'text-white');
+        foodItem.classList.add('ring-2', 'ring-orange-500');
+      }
+    }
+    
+    // 绑定添加按钮事件
+    foodGrid.addEventListener('click', (e) => {
+      const btn = e.target.closest('.add-btn');
+      if (btn) {
+        const id = parseInt(btn.dataset.foodId);
+        const name = btn.closest('.food-item').dataset.foodName;
+        toggleFood(id, name, btn);
+      }
+    });
+    
+    // 完成点单
+    completeBtn.addEventListener('click', () => {
+      if (selectedFoods.size === 0) {
+        alert('请先选择您喜欢的美食！');
+        return;
+      }
+
+      // 隐藏未选中的菜品
+      const allItems = foodGrid.querySelectorAll('.food-item');
+      const selectedItems = [];
+
+      allItems.forEach(item => {
+        const id = parseInt(item.dataset.foodId);
+        const name = item.dataset.foodName;
+        if (!selectedFoods.has(id)) {
+          item.style.display = 'none';
+        } else {
+          // 隐藏添加按钮
+          const btn = item.querySelector('.add-btn');
+          if (btn) btn.style.display = 'none';
+          selectedItems.push({ id, name, element: item });
+        }
+      });
+
+      // 隐藏完成点单按钮
+      completeBtn.style.display = 'none';
+
+      // 显示订单结果
+      orderResult.classList.remove('hidden');
+
+      // 清空之前的文本
+      const orderTextsContainer = document.getElementById('order-texts');
+      if (orderTextsContainer) {
+        orderTextsContainer.innerHTML = '';
+      }
+
+      // 为选中的菜品添加弹出动画（有力量感的弹性曲线）
+      selectedItems.forEach((item, index) => {
+        item.element.style.opacity = '0';
+        item.element.style.transform = 'scale(0)';
+
+        setTimeout(() => {
+          item.element.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+          item.element.style.opacity = '1';
+          item.element.style.transform = 'scale(1)';
+        }, index * 100);
+      });
+
+      // 逐条显示订单文本（递推 + 透明度渐变）
+      const orderTexts = selectedItems.map(item => `一份${item.name}`);
+      orderTexts.push('感谢您的点餐！真是十分有品味呢！');
+
+      orderTexts.forEach((text, index) => {
+        setTimeout(() => {
+          const textEl = document.createElement('p');
+          textEl.textContent = text;
+          textEl.className = 'text-neutral-600 dark:text-neutral-400 text-lg opacity-0 transform translate-y-2';
+          textEl.style.transition = 'all 0.5s ease-out';
+
+          if (orderTextsContainer) {
+            orderTextsContainer.appendChild(textEl);
+
+            // 触发重绘后开始动画
+            requestAnimationFrame(() => {
+              textEl.style.opacity = '1';
+              textEl.style.transform = 'translateY(0)';
+            });
+          }
+        }, 600 + index * 300);
+      });
+
+      // 滚动到结果区域
+      setTimeout(() => {
+        orderResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    });
+    
+    // 重新点餐
+    resetBtn.addEventListener('click', () => {
+      // 清空选中
+      selectedFoods.clear();
+
+      // 清空订单文本
+      const orderTextsContainer = document.getElementById('order-texts');
+      if (orderTextsContainer) {
+        orderTextsContainer.innerHTML = '';
+      }
+
+      // 显示所有菜品
+      const allItems = foodGrid.querySelectorAll('.food-item');
+      allItems.forEach(item => {
+        item.style.display = '';
+        item.style.opacity = '';
+        item.style.transform = '';
+        item.style.transition = '';
+        item.classList.remove('ring-2', 'ring-orange-500');
+
+        // 重置按钮
+        const btn = item.querySelector('.add-btn');
+        if (btn) {
+          btn.style.display = '';
+          btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>';
+          btn.classList.remove('bg-green-500', 'text-white');
+          btn.classList.add('bg-white', 'text-orange-500');
+        }
+      });
+
+      // 显示完成点单按钮
+      completeBtn.style.display = '';
+
+      // 隐藏订单结果
+      orderResult.classList.add('hidden');
+
+      // 滚动到顶部
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<style>
+  /* 美食嘉年华专属样式 */
+  .food-item {
+    transition: all 0.3s ease;
+  }
+  
+  .food-item:hover {
+    transform: translateY(-4px);
+  }
+  
+  .add-btn {
+    transition: all 0.2s ease;
+  }
+  
+  .add-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  /* 选中状态动画 */
+  @keyframes selectPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .food-item.ring-2 {
+    animation: selectPulse 0.3s ease;
+  }
+</style>

@@ -143,5 +143,54 @@
 			]
 		},
 		"isShow": true
+	},
+	{
+		"slug": "food-carnival",
+		"name": "美食嘉年华",
+		"description": "美食主题创意插画与品牌宣传设计",
+		"category": ["品牌", "宣传", "美食"],
+		"tags": ["品牌", "宣传", "美食"],
+		"image": "/assets/works/美食嘉年华封面.png",
+		"video": "",
+		"heroImage": "/assets/works/美食嘉年华封面.png",
+		"content": {
+			"summary": "美食嘉年华是一系列以美食为主题的创意插画作品，融合了各国美食文化元素，呈现出独特的视觉风格。",
+			"details": [
+				"通过精心设计的插画，展现世界各地美食的独特魅力。从中式小笼包到日式章鱼烧，从韩式年糕到万圣节主题甜品，每一幅作品都充满了创意与趣味。",
+				"该项目旨在探索美食与艺术的结合，用视觉语言讲述食物背后的故事。"
+			],
+			"images": [
+				{"url": "/assets/projects/单体/珍珠奶茶.webp", "alt": "珍珠奶茶"},
+				{"url": "/assets/projects/单体/章鱼烧.webp", "alt": "章鱼烧"},
+				{"url": "/assets/projects/单体/小笼包.webp", "alt": "小笼包"},
+				{"url": "/assets/projects/单体/拉面.webp", "alt": "拉面"},
+				{"url": "/assets/projects/单体/肉夹馍.webp", "alt": "肉夹馍"},
+				{"url": "/assets/projects/单体/冰糖葫芦.webp", "alt": "冰糖葫芦"},
+				{"url": "/assets/projects/单体/鲷鱼烧.webp", "alt": "鲷鱼烧"},
+				{"url": "/assets/projects/单体/韩国年糕.webp", "alt": "韩国年糕"},
+				{"url": "/assets/projects/单体/烧烤.webp", "alt": "烧烤"},
+				{"url": "/assets/projects/单体/刨冰.webp", "alt": "刨冰"},
+				{"url": "/assets/projects/单体/南瓜拉面.webp", "alt": "南瓜拉面"},
+				{"url": "/assets/projects/单体/蝙蝠翅膀包子.webp", "alt": "蝙蝠翅膀包子"},
+				{"url": "/assets/projects/单体/骷髅手奶茶.webp", "alt": "骷髅手奶茶"},
+				{"url": "/assets/projects/单体/眼珠章鱼烧.webp", "alt": "眼珠章鱼烧"},
+				{"url": "/assets/projects/单体/幽灵糖.webp", "alt": "幽灵糖"},
+				{"url": "/assets/projects/单体/糖1.webp", "alt": "糖果 1"},
+				{"url": "/assets/projects/单体/糖2.webp", "alt": "糖果 2"},
+				{"url": "/assets/projects/单体/糖3.webp", "alt": "糖果 3"},
+				{"url": "/assets/projects/单体/南瓜1.webp", "alt": "南瓜 1"},
+				{"url": "/assets/projects/单体/南瓜2.webp", "alt": "南瓜 2"},
+				{"url": "/assets/projects/单体/南瓜3.webp", "alt": "南瓜 3"},
+				{"url": "/assets/projects/单体/南瓜日本灯.webp", "alt": "南瓜日本灯"},
+				{"url": "/assets/projects/单体/日本夜叉面具.webp", "alt": "日本夜叉面具"},
+				{"url": "/assets/projects/单体/獠牙舞狮.webp", "alt": "獠牙舞狮"},
+				{"url": "/assets/projects/单体/叼饺子蝙蝠.webp", "alt": "叼饺子蝙蝠"},
+				{"url": "/assets/projects/单体/眼珠糖.webp", "alt": "眼珠糖"},
+				{"url": "/assets/projects/单体/Demon Hunter Pop.webp", "alt": "Demon Hunter Pop"},
+				{"url": "/assets/projects/单体/Rabbit Moonshine.webp", "alt": "Rabbit Moonshine"},
+				{"url": "/assets/projects/单体/Senbonzakura.webp", "alt": "Senbonzakura"}
+			]
+		},
+		"isShow": true
 	}
 ]
