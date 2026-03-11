@@ -192,5 +192,39 @@
 			]
 		},
 		"isShow": true
+	},
+	{
+		"slug": "lemon-design",
+		"name": "柠檬味的设计",
+		"description": "这里存放了一些可能不成系统但能让人觉得清爽的练习！",
+		"category": ["设计", "音乐", "清爽"],
+		"tags": ["设计", "音乐", "清爽"],
+		"image": "/assets/projects/x/磁盘1.webp",
+		"video": "",
+		"heroImage": "/assets/projects/x/磁盘1.webp",
+		"content": {
+			"summary": "这里存放了一些可能不成系统但能让人觉得清爽的练习！",
+			"details": [
+				"这是一个收集各种清爽设计练习的项目，包含唱片设计、磁盘设计、品牌规范等多种类型的作品。",
+				"每一件作品都追求简洁、清新的视觉风格，给人带来愉悦的视觉体验。"
+			],
+			"images": [
+				{"url": "/assets/projects/x/0326.webp", "alt": "0326"},
+				{"url": "/assets/projects/x/唱片1.webp", "alt": "唱片1"},
+				{"url": "/assets/projects/x/唱片2.webp", "alt": "唱片2"},
+				{"url": "/assets/projects/x/磁盘1.webp", "alt": "磁盘1"},
+				{"url": "/assets/projects/x/磁盘2.webp", "alt": "磁盘2"},
+				{"url": "/assets/projects/x/超能.webp", "alt": "超能"},
+				{"url": "/assets/projects/x/品牌与标志规范/封面.webp", "alt": "品牌与标志规范封面"},
+				{"url": "/assets/projects/x/品牌与标志规范/p0.webp", "alt": "品牌规范 p0"},
+				{"url": "/assets/projects/x/品牌与标志规范/p1.webp", "alt": "品牌规范 p1"},
+				{"url": "/assets/projects/x/品牌与标志规范/p2.webp", "alt": "品牌规范 p2"},
+				{"url": "/assets/projects/x/品牌与标志规范/p3.webp", "alt": "品牌规范 p3"},
+				{"url": "/assets/projects/x/品牌与标志规范/p4.webp", "alt": "品牌规范 p4"},
+				{"url": "/assets/projects/x/品牌与标志规范/p5.webp", "alt": "品牌规范 p5"},
+				{"url": "/assets/projects/x/品牌与标志规范/p6.webp", "alt": "品牌规范 p6"}
+			]
+		},
+		"isShow": true
 	}
 ]
