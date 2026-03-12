@@ -49,11 +49,11 @@ export const videos: Video[] = [
     coverUrl: "/assets/videos/hudielan.webp"
   },
   {
-    id: "qiu",
-    title: "秋",
-    description: "节选了二十四节气里面的秋露和春分，然后 ps 处理了两张古画做出动效后产出的带配乐短片",
-    tags: ["二十四节气", "文物修复", "宣传动画"],
-    iframeCode: '<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116192438195766&bvid=BV1HCNMz9EHo&cid=36547464556&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>',
-    coverUrl: "/assets/videos/qiu.webp"
+    id: "red-bird",
+    title: "红色小鸟",
+    description: "基于抗战时期的各个身份拟鸟化了多种形象",
+    tags: ["红色", "小鸟", "手绘动画"],
+    iframeCode: '<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116216177892974&bvid=BV1fecrzPExW&cid=36649896690&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>',
+    coverUrl: "/assets/videos/red-bird.webp"
   }
 ];

@@ -226,27 +226,5 @@
 			]
 		},
 		"isShow": true
-	},
-	{
-		"slug": "about-xiaoli",
-		"name": "关于小狸",
-		"description": "可爱的半狸猫半人生物，了解更多关于小狸的故事！",
-		"category": ["角色", "设计"],
-		"tags": ["角色", "设计"],
-		"image": "/assets/projects/小狸1.webp",
-		"video": "",
-		"heroImage": "/assets/projects/小狸1.webp",
-		"content": {
-			"summary": "小狸是一个可爱的半狸猫半人生物，拥有独特的魅力和故事。",
-			"details": [
-				"小狸诞生于设计师的灵感之中，融合了猫咪的可爱与人类的智慧。",
-				"作为半狸猫半人的存在，小狸既拥有猫咪的灵动，又具备人类的情感与思考能力。"
-			],
-			"images": [
-				{"url": "/assets/projects/小狸1.webp", "alt": "小狸 1"},
-				{"url": "/assets/projects/小狸2.webp", "alt": "小狸 2"}
-			]
-		},
-		"isShow": true
 	}
 ]
