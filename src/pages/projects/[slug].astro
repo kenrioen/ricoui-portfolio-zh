@@ -9,7 +9,7 @@ import works from "@/collections/works.json";
 
 export async function getStaticPaths() {
   return works
-    .filter(work => work.slug && work.slug !== 'hunan-minghui-vi' && work.slug !== 'algernon-book-design' && work.slug !== 'food-carnival' && work.slug !== 'lemon-design') // 排除有独立页面的项目
+    .filter(work => work.slug && work.slug !== 'hunan-minghui-vi' && work.slug !== 'algernon-book-design' && work.slug !== 'food-carnival' && work.slug !== 'lemon-design' && work.slug !== 'about-xiaoli') // 排除有独立页面的项目
     .map(work => ({
       params: { slug: work.slug }
     }));
